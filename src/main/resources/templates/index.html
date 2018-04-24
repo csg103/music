@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Landing Page | Amaze UI Example</title>
+    <meta name="description" content="">
+    <link rel="alternate icon" type="image/png" href="js/amaze/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="js/amaze/assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="js/amaze/assets/css/amazeui.min.css?v=iir8iyp4">
+    <link rel="stylesheet" href="js/amaze/assets/css/amaze.min.css?v=iir8iyp4">
+    <link rel="canonical" href="http://amazeui.org/widgets/slider/a1/0?_ver=2.x"/>
+    <script src="js/jquery.js?v=iir8iyp4"></script>
+    <script src="js/amaze/assets/js/handlebars.min.js?v=iir8iyp4"></script>
+    <script src="js/amaze/assets/js/amazeui.min.js?v=iir8iyp4"></script>
+
+    <style type="text/css">
+
+        .buttonnostyle {
+            border: 0px;
+            background-color: transparent;
+
+        }
+
+        /*p:hover{*/
+        /*!*鼠标悬浮在p标签上时，大小20，颜色红色*!*/
+
+        /*color: #ff511d;*/
+
+        /*}*/
+
+    </style>
+</head>
+<body>
+<div class="am-g " style="padding-top: 1.5%">
+
+    <div class="am-u-sm-9 am-u-sm-centered">
+
+        <div class="am-g ">
+            <div class="am-u-sm-3 am-u-sm-centered">
+                <img src="http://js.ibaotu.com/revision/img/logo.png">
+            </div>
+        </div>
+
+        <div class="am-g" style="width: 99% ;margin: auto">
+            <div class="am-u-sm-3">
+                <div class="am-input-group am-input-group-warning">
+                    <span class="am-input-group-label"><i class="am-icon-search"></i></span>
+                    <input type="text" class="am-form-field" placeholder="搜索课程···">
+                </div>
+            </div>
+
+            <div class="am-u-sm-2">
+                <button type="button" class="am-btn am-btn-warning am-round am-btn-xs">登陆</button>
+            </div>
+
+        </div>
+        <div class="am-panel am-panel-default " style="margin:1%;height: 200px">
+            <div>
+                <div class="am-g" style="margin:1%;height: 25px">
+                    <div class="am-u-sm-2" STYLE="text-align: center">
+                        <a href="" class="buttonnostyle" onmouseover="changeButton1(this)"
+                           onmouseout="changeButton2(this)">首页
+                        </a>
+                    </div>
+                    <div class="am-u-sm-2" STYLE="text-align: center">
+                        <a href="" class="buttonnostyle" onmouseover="changeButton1(this)"
+                           onmouseout="changeButton2(this)">音乐🎵
+                        </a>
+                    </div>
+                    <div class="am-u-sm-2 am-u-end" STYLE="text-align: center">
+                        <a thref="" class="buttonnostyle" onmouseover="changeButton1(this)"
+                           onmouseout="changeButton2(this)">其他
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 98% ; margin: auto">
+                <div style="background-image: url(http://js.ibaotu.com/revision/img/video_banner.png);border-radius: 2px; height: 75px">
+                    <p style="color: #fafafa;text-align-last:center;font-size: 30px">视频</p>
+                </div>
+            </div>
+            <div>
+                <ol class="am-breadcrumb">
+                    <li><a href="#" class="am-active">当前位置</a></li>
+                    <li><a href="#" class="am-active">音乐</a></li>
+                </ol>
+            </div>
+            <div>
+                <div>
+                    <div class="am-g">
+                        <div class="am-u-sm-1" STYLE="text-align: left">
+                            <a href="#" class="">分类：</a>
+                        </div>
+                        <div class="am-u-sm-1" STYLE="text-align: left">
+                            <a href="#" class="">钢琴</a>
+                        </div>
+                        <div class="am-u-sm-1" STYLE="text-align: left">
+                            <a href="#" class="">吉他</a>
+                        </div>
+                        <div class="am-u-sm-1 am-u-end" STYLE="text-align: left">
+                            <a href="#" class="">架子鼓</a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--<div class="am-panel-bd">这是一个基本的面板组件。</div>-->
+        </div>
+
+
+        <div class="page pg-demo">
+
+            <div id="demo-view" data-backend-compiled>
+                <div data-am-widget="slider" class="am-slider am-slider-a1"
+                     data-am-slider="{&quot;directionNav&quot;:false}">
+                    <ul class="am-slides">
+                        <li><img src="http://s.amazeui.org/media/i/demos/bing-1.jpg"></li>
+                        <li><img src="http://s.amazeui.org/media/i/demos/bing-2.jpg"></li>
+                        <li><img src="http://s.amazeui.org/media/i/demos/bing-3.jpg"></li>
+                        <li><img src="http://s.amazeui.org/media/i/demos/bing-4.jpg"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ds-thread" id="ds-thread" data-thread-key="92ca249b3460177dd14ca0881395a2ae"
+                 data-title="图片轮播 - a1（圆形控制点） | Amaze UI"></div>
+
+        </div>
+
+
+        <footer data-am-widget="footer"
+                class="am-footer am-footer-default"
+                data-am-footer="{  }">
+            <div class="am-footer-switch">
+    <span class="am-footer-ysp" data-rel="mobile"
+          data-am-modal="{target: '#am-switch-mode'}">
+          云适配版
+    </span>
+                <span class="am-footer-divider"> | </span>
+                <a id="godesktop" data-rel="desktop" class="am-footer-desktop" href="javascript:">
+                    电脑版
+                </a>
+            </div>
+            <div class="am-footer-miscs ">
+
+                <p>由 <a href="http://www.yunshipei.com/" title="诺亚方舟"
+                        target="_blank" class="">诺亚方舟</a>
+                    提供技术支持</p>
+                <p>CopyRight©2014 AllMobilize Inc.</p>
+                <p>京ICP备13033158</p>
+            </div>
+        </footer>
+
+
+        <div id="am-footer-modal"
+             class="am-modal am-modal-no-btn am-switch-mode-m am-switch-mode-m-default">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd am-modal-footer-hd">
+                    <a href="javascript:void(0)" data-dismiss="modal" class="am-close am-close-spin "
+                       data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    您正在浏览的是
+
+                    <span class="am-switch-mode-owner">云适配
+                        </span>
+
+                    <span class="am-switch-mode-slogan">为您当前手机订制的移动网站。
+                        </span>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('.am-slider').flexslider({
+                    playAfterPaused: 3000,
+                    animation: "fade",
+                    animationLoop: true,
+                    smoothHeight: true,
+                    animationSpeed: 4000
+                });
+            });
+
+            function changeButton1(obj) {
+                $(obj).attr("class", "am-btn am-btn-warning am-round am-btn-sm");
+
+            }
+
+            function changeButton2(obj) {
+
+                $(obj).attr("class", "buttonnostyle");
+
+            }
+
+
+        </script>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
