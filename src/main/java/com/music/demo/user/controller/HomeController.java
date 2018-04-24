@@ -20,7 +20,7 @@ public class HomeController {
 //        MyShiroRealm realm = (MyShiroRealm)rsm.getRealms().iterator().next();
 //        realm.clearCachedAuthorization();
 
-        return"/index";
+        return"/model/PC/index";
     }
 
     @RequestMapping("/login")

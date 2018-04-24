@@ -17,8 +17,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class AliyunVideoUtils {
-    private static String accessKeyId = "LTAI7C6TrjDTmpie1";
-    private static String accessKeySecret = "O9XHBbCEouna0tLFkvma3ne77b9Zc82";
+    private static String accessKeyId = "LTAI7C6TrjDTmpie";
+    private static String accessKeySecret = "O9XHBbCEouna0tLFkvma3ne77b9Zc8";
     private static String httpAli = "http://vod.cn-shanghai.aliyuncs.com";
     private static DefaultAcsClient aliyunClient;
 

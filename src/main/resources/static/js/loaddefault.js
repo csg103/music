@@ -1,10 +1,12 @@
 // JavaScript Document
 
 $(function(){
+
 	loadHtml();
 });
 
 function loadHtml(){
+
 	$("#top").load("common/top.html");//顶部
 	$("#rigthMenu").load("common/rigthMenu.html");//顶部
 	
