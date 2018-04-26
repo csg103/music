@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+<title>首页</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/swiper-4.2.2.min.css" rel="stylesheet" type="text/css" />
+<link rel="canonical" href="http://amazeui.org/widgets/slider/a1/0?_ver=2.x"/>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<!--<script type="text/javascript" src="js/loaddefault.js"></script>-->
+
+</head>
+
+<body>
+<<<<<<< HEAD
+<div id="top"></div>
+<div id="header"></div>
+<div id="indexHeader"></div>
+=======
+<div id="top">
+	<div th:insert="~{model/PC/common/top :: #top}"></div>
+
+</div>
+>>>>>>> 8477f130681d73ccba4b349f0ae71a42f970f177
+
+<div class="wrap">
+	<div class="list-3 menuTitle js_floor" cnTitle="孙尚香" enTitle="Sun.Shangxiang" href="http://www.163.com" floorTitle="一层">
+		<div th:insert="~{model/PC/common/list-3 :: #list-3}"></div>
+	</div>
+	
+	<div class="list-3 menuTitle js_floor" cnTitle="成吉思汗" enTitle="Chengji.Sihan" href="http://www.163.com" floorTitle="二层">
+		<div th:insert="~{model/PC/common/list-3 :: #list-3}"></div>
+
+	</div>
+	
+	<div class="list-2 menuTitle js_floor" cnTitle="后裔" enTitle="Hou.Yi" href="http://www.sina.com.cn" floorTitle="三层">
+		<div th:insert="~{model/PC/common/list-2 :: #list-2}"></div>
+	</div>
+	
+	<div class="list-2 menuTitle js_floor" cnTitle="狄仁杰" enTitle="Di.Renjie" href="http://www.qq.com" floorTitle="四层">
+		<div th:insert="~{model/PC/common/list-2 :: #list-2}"></div>
+	</div>
+	
+	<div class="list-1 menuTitle js_floor" cnTitle="李元芳" enTitle="Li.Yuanfang" href="http://www.baidu.com" floorTitle="五层">
+		<div th:insert="~{model/PC/common/list-1 :: #list-1}"></div>
+	</div>
+	
+	<div class="list-1 menuTitle js_floor" cnTitle="鲁班七号" enTitle="LuBan No.7" floorTitle="六层">
+		<div th:insert="~{model/PC/common/list-1 :: #list-1}"></div>
+	</div>
+</div>
+
+<!--右边栏-->
+<div >
+	<div th:insert="~{model/PC/common/rigthMenu :: #rightMenu}"></div>
+</div>
+
+<!--外部引用JS集合 防止Load后问题-->
+
+<!-- Swiper JS -->
+<script src="js/swiper-4.2.2.min.js"></script>
+
+<script type="text/javascript" src="js/loadJs.js"></script>
+<!--end-->
+</body>
+</html>
