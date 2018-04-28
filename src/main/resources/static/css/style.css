@@ -457,6 +457,20 @@ animation: myfirst 1s linear 0s infinite normal;
 	background: url(../images/icon_right-2.png) no-repeat center center #ff8a00;
 }
 
+.swiperBox i {font-size:14px;line-height:22px;display: block;color: #fff;position: absolute;top:10px;left:0;font-family: "微软雅黑";border-radius: 0 20px 20px 0;overflow: hidden;}
+.swiperBox i em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-left: 6px;}
+.swiperBox i em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
+.swiperBox i em b {position: relative;font-weight: normal;margin-right:15px;}
+
+.swiperBox s {font-size:14px;line-height:22px;display: block;color: #fff;position: absolute;top:10px;right:0;font-family: "微软雅黑";border-radius: 20px 0 0 20px;overflow: hidden;text-decoration: none;}
+.swiperBox s em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-right: 6px;}
+.swiperBox s em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
+.swiperBox s em b {position: relative;font-weight: normal;margin-left:15px;}
+
+.swiperBox .swiper-slide:hover i,.swiperBox .swiper-slide:hover s {
+	opacity: 0;
+}
+
 .title-1 {
 	padding: 40px 0 30px;
 }
@@ -693,6 +707,21 @@ animation: myfirst 1s linear 0s infinite normal;
 	display: block
 }
 
+.picsBox i {font-size:16px;line-height:26px;display: block;color: #fff;position: absolute;top:0px;left:0;font-family: "微软雅黑";border-radius: 0 0px 20px 0;overflow: hidden;}
+.picsBox i em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-left: 6px;}
+.picsBox i em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
+.picsBox i em b {position: relative;font-weight: normal;margin-right:15px;}
+
+.picsBox s {font-size:16px;line-height:26px;display: block;color: #fff;position: absolute;top:0px;right:0;font-family: "微软雅黑";border-radius: 0px 0 0 20px;overflow: hidden;text-decoration: none;}
+.picsBox s em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-right: 6px;}
+.picsBox s em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
+.picsBox s em b {position: relative;font-weight: normal;margin-left:10px;}
+
+.picsBox li:hover i,.picsBox li:hover s {
+	opacity: 0;
+}
+
+.videoBox {position: relative;z-index: 10;}
 .videoBox li {
 	width: 340px;
 	height: 192px;
@@ -1195,6 +1224,747 @@ animation: myfirst 1s linear 0s infinite normal;
 }
 .leftMenu li {height: 80px;text-align: center;}
 
+.pb-float-head {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0;
+    background-color: #fff;
+    z-index: 1001;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.logo-b2 {display: block;width: 154px;height: 54px;float: left;margin-top: 12px;}
+.pb-float-head .float-head-nav {
+    position: relative;
+    width: 482px;
+    float: left;
+    height: 36px;
+    padding-top: 30px;
+    letter-spacing: 1px;
+}
+.pb-float-head .float-head-nav li {float: left;font-size: 16px;margin-left: 48px;position: relative;}
+.pb-float-head .float-head-nav li:hover .nav-hover-banner{
+	display: block;
+}
+.pb-float-head .float-search-input {
+	margin-top: 17px;
+	width: 530px;
+    position: relative;
+    float: left;
+    margin-left: 45px;
+}
+.pb-float-head .float-search-input > input {
+    width: 100%;
+    height: 44px;
+    /*padding-left: 30px;
+    padding-right: 110px;*/
+    font-size: 18px;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: #e6e6e6;
+    border: none;
+    color: #666;
+    text-indent: 10px;
+    letter-spacing: 3px;
+}
+.pb-float-head .float-search-input .head-search-wrap {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 44px;
+    right: 0;
+    background: #ffae12;
+    background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));
+    background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: linear-gradient(to right, #ffae12 0, #f07d17 100%);
+    background: #ff8a00 \9 \0;
+    -webkit-border-bottom-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    -webkit-border-top-right-radius: 22px;
+    border-top-right-radius: 22px;
+    cursor: pointer;
+}
+.pb-float-head .float-nav-item.nav-item-more .nav-hover-banner {
+    position: absolute;
+    display: none;
+    left: -38px;
+    top: 20px;
+    width: 140px;
+    z-index: 7;
+    padding: 15px 0 3px;
+    text-align: center;
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+}
+.pb-float-head .float-nav-item.nav-item-more .more-item {
+    position: relative;
+    width: 100%;
+    height: 34px;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.pb-float-head .login-register, .pb-float-head .user-info, .pb-float-head .user-notices, .pb-float-head .ver-line {
+    display: inline-block;
+    vertical-align: top
+}
+
+.pb-float-head .login-register {
+    letter-spacing: 2px;
+    font-size: 14px
+}
+
+.pb-float-head .login-register > a {
+    float: left;
+    color: #666;
+    text-align: center
+}
+
+.pb-float-head .login-register .login {
+    width: 62px;
+    height: 26px;
+    line-height: 24px;
+    text-indent: 3px;
+    color: #ff8a00;
+    border: 1px solid #ff8a00;
+    -webkit-border-radius: 12px;
+    border-radius: 12px
+}
+
+.pb-float-head .login-register .login:hover {
+    border: 0;
+    color: #fff;
+    background: #ffae12;
+    background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));
+    background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: linear-gradient(to right, #ffae12 0, #f07d17 100%);
+    background: #ffae12 \9 \0
+}
+
+.pb-float-head .login-register .register {
+    height: 16px;
+    line-height: 16px;
+    padding: 0 10px 0 12px;
+    margin-top: 5px
+}
+
+.pb-head .login-register .register:hover {
+    color: #ff8a00
+}
+.user-center {float: right;margin-top: 27px;}
+
+#top {display: none;position: relative;z-index: 40;}
+
+.pb-head {
+    position: relative;
+    height: 125px;
+    padding-top: 33px;
+    z-index: 8
+}
+
+.pb-head .logo-b-wrap {
+    width: 100%;
+    text-align: center
+}
+
+.pb-head .logo-b-wrap .logo-b {
+    position: relative;
+    display: inline-block;
+    left: 14px
+}
+
+.pb-head .head-cot {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    height: 26px;
+    font-size: 14px;
+    z-index: 2
+}
+
+.pb-head .user-center {
+    float: right;
+    height: 100%;
+    line-height: 26px;
+    margin-top: 0;
+}
+
+.pb-head .user-center.noLogin > .login-register {
+    display: inline-block
+}
+
+.pb-head .user-center.noLogin > .user-info {
+    display: none
+}
+
+.pb-head .login-register, .pb-head .user-info, .pb-head .user-notices, .pb-head .ver-line {
+    display: inline-block;
+    vertical-align: top
+}
+
+.pb-head .login-register {
+    letter-spacing: 2px;
+    font-size: 14px
+}
+
+.pb-head .login-register > a {
+    float: left;
+    color: #666;
+    text-align: center
+}
+
+.pb-head .login-register .login {
+    width: 62px;
+    height: 26px;
+    line-height: 24px;
+    text-indent: 3px;
+    color: #ff8a00;
+    border: 1px solid #ff8a00;
+    -webkit-border-radius: 12px;
+    border-radius: 12px
+}
+
+.pb-head .login-register .login:hover {
+    border: 0;
+    color: #fff;
+    background: #ffae12;
+    background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));
+    background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: linear-gradient(to right, #ffae12 0, #f07d17 100%);
+    background: #ffae12 \9 \0
+}
+
+.pb-head .login-register .register {
+    height: 16px;
+    line-height: 16px;
+    padding: 0 10px 0 12px;
+    margin-top: 5px
+}
+
+.pb-head .login-register .register:hover {
+    color: #ff8a00
+}
+
+.indexHeader {    
+	position: relative;
+    width: 100%;
+    padding-top: 28px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+}
+
+.pb-nav .nav-wrap {
+    position: relative;
+    width: 100%;
+    height: 24px;
+}
+.pb-nav .nav {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: 2px
+}
+
+.pb-nav .nav > ul {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 90px 0 60px
+}
+
+.pb-nav .nav-item {
+    position: relative;
+    float: left
+}
+
+.pb-nav .nav-item > .nav-ppt {
+    position: absolute;
+    top: -14px;
+    right: -9px;
+    width: 41px;
+    height: 22px;
+    padding: 0;
+    background: url(http://js.ibaotu.com/revision/img/public/PPT2.png) center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover
+}
+
+.pb-nav .nav-item.nav-item-more:hover > a {
+    color: #666
+}
+
+.pb-nav .nav-item.nav-item-more:hover .nav-hover-banner {
+    display: block
+}
+
+.pb-nav .nav-item.nav-item-more .nav-hover-banner {
+    position: absolute;
+    display: none;
+    top: 19px;
+    left: -27px;
+    z-index: 4;
+    width: 140px;
+    padding: 30px 0 0 0;
+    text-align: center;
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1)
+}
+
+.pb-nav .nav-item.nav-item-more .more-item {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    line-height: 24px;
+    padding-bottom: 6px;
+    margin-bottom: 17px
+}
+
+.pb-nav .nav-item.nav-item-more .more-item > a {
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 16px;
+    padding-bottom: 6px;
+    color: #666;
+    letter-spacing: 2px
+}
+
+.pb-nav .nav-item.nav-item-more .more-item:hover > a {
+    color: #ff8a00
+}
+
+.pb-nav .nav-item.nav-item-more .hoverline-wrap {
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    height: 3px
+}
+
+.pb-nav .nav-item.nav-item-more .hoverline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff8a00
+}
+
+.pb-nav .nav-item > a {
+    display: block;
+    height: 24px;
+    line-height: 16px;
+    padding: 0 29px;
+    color: #666;
+    cursor: pointer
+}
+
+.pb-nav .nav-item > a.active, .pb-nav .nav-item > a:hover {
+    color: #ff8a00
+}
+
+.pb-nav .nav-item:first-child > a {
+    padding-left: 0;
+    padding-right: 47px
+}
+
+.pb-nav .nav-item:last-child > a {
+    position: relative;
+    top: -12px;
+    font-size: 32px;
+    padding-right: 0
+}
+
+.pb-nav .nav-item:hover .nav-hover-banner {
+    display: block
+}
+
+.pb-nav .nav-item:nth-of-type(2) .nav-hover-banner {
+    width: 290px;
+    padding: 25px 28px 15px
+}
+
+.pb-nav .nav-item:nth-of-type(5) .nav-hover-banner {
+    left: -89px
+}
+
+.pb-nav .nav-hover-banner.perVip {
+    display: none;
+    width: 290px;
+    height: 150px;
+    top: 24px;
+    left: -82px;
+    text-align: center;
+    background: url(http://js.ibaotu.com/revision/img/public/per_vip_bg.png) center;
+    padding: 0;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-background-size: cover;
+    background-size: cover
+}
+
+.pb-nav .nav-hover-banner.perVip.comVip {
+    width: 300px;
+    height: 270px;
+    left: -87.5px;
+    background: transparent url(http://js.ibaotu.com//revision/img/public/com.png) no-repeat
+}
+
+.pb-nav .perVip .btn-wrap {
+    overflow: hidden;
+    width: 200px;
+    height: 46px;
+    margin: 198px auto 0;
+    line-height: 44px;
+    text-align: center;
+    -webkit-border-radius: 23px;
+    border-radius: 23px
+}
+
+.pb-nav .perVip .add-perVip {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    color: #ff8a00;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-indent: 3px;
+    background-color: #fff
+}
+
+.pb-nav .perVip.comVip .add-perVip {
+    color: #d7a967
+}
+
+.pb-nav .perVip.comVip .add-perVip:hover {
+    text-shadow: 0 3px 8px rgba(172, 128, 65, .5)
+}
+
+.pb-nav .perVip .add-perVip:hover {
+    text-shadow: 0 3px 8px rgba(255, 138, 0, .5)
+}
+
+.pb-nav .hoverLine-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    z-index: -1
+}
+
+.pb-nav .hoverLine-wrap .hoverLine {
+    position: absolute;
+    bottom: 0;
+    left: 185px;
+    width: 80px;
+    height: 2px;
+    background-color: #ff8a00;
+    opacity: 0
+}
+
+.pb-nav .nav-hover-banner {
+    display: none;
+    position: absolute;
+    top: 24px;
+    left: -80px;
+    z-index: 7;
+    padding: 25px 13px 15px;
+    width: 290px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .2)
+}
+
+.pb-nav .nav-hover-banner .hover-classify-one {
+    height: 38px
+}
+
+.hover-classify-one .classify-item-wrap {
+    float: left;
+    width: 126px
+}
+
+.pb-nav .nav-item:nth-of-type(2) .hover-classify-one .classify-item-wrap {
+    width: 117px
+}
+
+.pb-nav .classify-one-item {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 26px;
+    padding: 5px 14px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #666;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    letter-spacing: 0;
+    margin-bottom: 10px
+}
+
+.pb-nav .classify-one-item:hover {
+    background: #ff8a00 \9 \0;
+    background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));
+    background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: linear-gradient(to right, #ffae12 0, #f07d17 100%);
+    -webkit-filter: none\9 \0;
+    filter: none\9 \0;
+    -ms-filter: none\9 \0;
+    color: #fff;
+    color: #ff8a00 \9 \0
+}
+.pb-nav .classify-two-ul .classify-two-ul-li > a:hover {
+    background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));
+    background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: linear-gradient(to right, #ffae12 0, #f07d17 100%);
+    color: #fff;
+    color: #ff8a00 \9 \0;
+}
+.pb-nav .classify-one-item:first-child {
+    margin-left: 0
+}
+
+.pb-nav .classify-two-wrap:first-child {
+    border-left: 0;
+    padding-left: 0
+}
+
+.pb-nav .classify-two-wrap > a {
+    display: block;
+    height: 16px;
+    line-height: 16px;
+    margin: 5px 0 20px 14px;
+    font-size: 16px;
+    color: #ff8a00;
+    font-weight: 700;
+    text-indent: 8px;
+    border-left: 2px solid #ff8a00
+}
+
+.pb-nav .classify-two-ul {
+    overflow: hidden;
+    font-size: 14px
+}
+
+.pb-nav .classify-two-ul > li {
+    float: left;
+    width: 132px;
+    margin: 0 0 10px;
+    letter-spacing: 0
+}
+
+.pb-nav .classify-two-ul > li > a {
+    float: left;
+    line-height: 14px;
+    color: #666;
+    padding: 5px 14px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px
+}
+
+.pb-nav .classify-two-ul > li > a:hover {
+    /*background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);*/
+    /*background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));*/
+    /*background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);*/
+    /*background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);*/
+    /*background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);*/
+    /*background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));*/
+    /*background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));*/
+    /*background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));*/
+    /*background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));*/
+    /*background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));*/
+    /*background: linear-gradient(to right, #ffae12 0, #f07d17 100%);*/
+    /*color: #fff;*/
+    /*color: #ff8a00 \9 \0*/
+}
+
+.pb-nav .classify-one-item-diff {
+    display: inline-block;
+    vertical-align: top;
+    height: 24px;
+    padding: 5px 14px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #666;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    color: #ff8a00;
+}
+
+.indexHeader {position: relative;z-index: 30;}
+
+.home-search-wrap {
+    position: relative;
+    width: 1020px;
+    height: 50px;
+    margin: 26px auto 0;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    background-color: #e6e6e6
+}
+
+.home-search-wrap > input {
+    width: 746px;
+    height: 38px;
+    margin: 4px 0 0 30px;
+    line-height: 28px;
+    font-size: 18px;
+    color: #666;
+    letter-spacing: 3px;
+    background-color: #e6e6e6;
+    border: none;
+}
+.home-search-wrap .home-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 116px;
+    height: 100%;
+    background: #ffae12;
+    background: -moz-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left, right, color-stop(0, #ffae12), color-stop(100%, #f07d17));
+    background: -webkit-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -o-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -ms-linear-gradient(left, #ffae12 0, #f07d17 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffae12), to(#f07d17));
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ffae12), to(#f07d17));
+    background: linear-gradient(to right, #ffae12 0, #f07d17 100%);
+    -webkit-border-top-right-radius: 25px;
+    border-top-right-radius: 25px;
+    -webkit-border-bottom-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+}
+
+.banner-swiper {
+	width: 1390px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto ;
+	padding: 30px 0;
+}
+
+.banner-swiper .swiper-container {
+	width: 100%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.banner-swiper .swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.banner-swiper .swiper-button-prev {
+	background: url(../images/icon_left.png) no-repeat center center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	left: 10px;
+}
+
+.banner-swiper .swiper-button-prev:hover {
+	background: url(../images/icon_left-2.png) no-repeat center center #ff8a00;
+}
+
+.banner-swiper .swiper-button-next {
+	background: url(../images/icon_right.png) no-repeat center center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	right: 10px;
+}
+
+.banner-swiper .swiper-button-next:hover {
+	background: url(../images/icon_right-2.png) no-repeat center center #ff8a00;
+}
+.banner-swiper .swiper-pagination-bullet-active {
+	padding: 0 8px;
+	border-radius: 30px;
+	transition: all 0.1s ease 0s;
+	-ms-transition: all 0.1s ease 0s;
+	-moz-transition: all 0.1s ease 0s;
+	-webkit-transition: all 0.1s ease 0s;
+	-o-transition: all 0.1s ease 0s;
+}
+
 @media screen and (max-width:1680px) {
 	.wrap {
 		width: 1200px;
@@ -1216,6 +1986,14 @@ animation: myfirst 1s linear 0s infinite normal;
 		margin-bottom: 20px;
 	}
 	.leftMenu {left:40px;}
+	.pb-float-head .float-search-input {width: 355px;}
+	.banner-swiper {
+		width: 1140px;
+		height: 328px;
+		padding: 30px 0;
+	}
+	.pb-nav .nav-item:first-child > a {padding-right: 30px;}
+	.pb-nav .nav-item > a {    padding: 0 20px;}
 }
 
 @media screen and (max-width:1440px) {
@@ -1244,4 +2022,15 @@ animation: myfirst 1s linear 0s infinite normal;
 		margin-bottom: 20px;
 	}
 	.leftMenu {left:20px;}
+	.pb-float-head .float-search-input {width: 270px;}
+	.pb-float-head .float-head-nav {width: 364px;}
+	.pb-float-head .float-head-nav li {margin-left: 24px;}
+	.banner-swiper {
+		width: 950px;
+		height: 273px;
+		padding: 30px 0;
+	}
+	.pb-nav .nav-item:first-child > a {padding-right: 20px;}
+	.pb-nav .nav-item > a {    padding: 0 10px;}
+	.home-search-wrap {width: 950px;}
 }

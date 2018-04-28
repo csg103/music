@@ -8,14 +8,17 @@ public class ProductType {
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "c_product_type_id")
-    private String productTypeId;
+    @Column(name = "c_product_parent_id")
+    private String productParentId;
 
-    @Column(name = "c_product_type_name")
-    private String productTypeName;
+    @Column(name = "c_product_parent_name")
+    private String productParentName;
 
-    @Column(name = "c_product_type_parent_id")
-    private String productTypeParentId;
+    @Column(name = "c_text1")
+    private String text1;
+
+    @Column(name = "c_text2")
+    private String text2;
 
     /**
      * @return ID
@@ -32,44 +35,58 @@ public class ProductType {
     }
 
     /**
-     * @return c_product_type_id
+     * @return c_product_parent_id
      */
-    public String getProductTypeId() {
-        return productTypeId;
+    public String getProductParentId() {
+        return productParentId;
     }
 
     /**
-     * @param productTypeId
+     * @param productParentId
      */
-    public void setProductTypeId(String productTypeId) {
-        this.productTypeId = productTypeId;
+    public void setProductParentId(String productParentId) {
+        this.productParentId = productParentId;
     }
 
     /**
-     * @return c_product_type_name
+     * @return c_product_parent_name
      */
-    public String getProductTypeName() {
-        return productTypeName;
+    public String getProductParentName() {
+        return productParentName;
     }
 
     /**
-     * @param productTypeName
+     * @param productParentName
      */
-    public void setProductTypeName(String productTypeName) {
-        this.productTypeName = productTypeName;
+    public void setProductParentName(String productParentName) {
+        this.productParentName = productParentName;
     }
 
     /**
-     * @return c_product_type_parent_id
+     * @return c_text1
      */
-    public String getProductTypeParentId() {
-        return productTypeParentId;
+    public String getText1() {
+        return text1;
     }
 
     /**
-     * @param productTypeParentId
+     * @param text1
      */
-    public void setProductTypeParentId(String productTypeParentId) {
-        this.productTypeParentId = productTypeParentId;
+    public void setText1(String text1) {
+        this.text1 = text1;
+    }
+
+    /**
+     * @return c_text2
+     */
+    public String getText2() {
+        return text2;
+    }
+
+    /**
+     * @param text2
+     */
+    public void setText2(String text2) {
+        this.text2 = text2;
     }
 }

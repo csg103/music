@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.music.demo.dao.dao.mybatis.PicListMapper">
-  <resultMap id="BaseResultMap" type="com.music.demo.dao.entity.mybatis.PicList">
+<mapper namespace="com.music.demo.dao.dao.mybatis.ProductDetailMapper">
+  <resultMap id="BaseResultMap" type="com.music.demo.dao.entity.mybatis.ProductDetail">
     <!--
       WARNING - @mbg.generated
     -->
     <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="c_product_pic_list_id" jdbcType="VARCHAR" property="productPicListId" />
-    <result column="c_product_pic_url" jdbcType="VARCHAR" property="productPicUrl" />
+    <result column="c_course_detail_id" jdbcType="VARCHAR" property="courseDetailId" />
+    <result column="c_course_detail_aili_id" jdbcType="VARCHAR" property="courseDetailAiliId" />
+    <result column="c_course_title" jdbcType="VARCHAR" property="courseTitle" />
+    <result column="c_course_time" jdbcType="VARCHAR" property="courseTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -45,13 +47,13 @@
     <!--
       WARNING - @mbg.generated
     -->
-    ID, c_product_pic_list_id, c_product_pic_url
+    ID, c_course_detail_id, c_course_detail_aili_id, c_course_title, c_course_time
   </sql>
-  <select id="countByExample" parameterType="com.music.demo.dao.entity.mybatis.PicListExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.music.demo.dao.entity.mybatis.ProductDetailExample" resultType="java.lang.Long">
     <!--
       WARNING - @mbg.generated
     -->
-    select count(*) from t_pic_list
+    select count(*) from t_product_detail
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>

@@ -1,2 +1,46 @@
-<div id ="top">
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+<div id="top">
+    <header class="pb-float-head" style="display: block;">
+        <div class="head-wrap wrap">
+            <a href="###" class="logo-b2 aImg"><img src="http://js.ibaotu.com/revision/img/logo.png" alt=""></a>
+            <nav class="float-head-nav">
+
+
+                <ul class="clearfix"  >
+                    <li class="float-nav-item">
+                        <a href="###">首页</a>
+                    </li>
+                    <li class="float-nav-item sheji nav-item-more" th:each="productType,iterStat:${listProductType}">
+                        <div class="item-sheji-wrap"  >
+
+                            <a href="javascript:;" th:id ="${productType.productParentId}" th:utext="${productType.productParentName}"></a><i class="pb-icon icons-sanjiao"></i>
+                        </div>
+                        <div class="nav-hover-banner" >
+                            <div class="more-item" th:each="productDetailType,iterStat:${productType.listProductDatilType}">
+                                <a href="###" th:id="${productDetailType.productParentId}"  th:utext="${productDetailType.productParentName}">广告设计</a>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+                <div class="hoverLine-wrap"><i class="hoverLine"></i></div>
+            </nav>
+            <!--搜索-->
+            <div class="float-search-input">
+                <input type="placeholder" name="" placeholder="" value="" class="head-classify-inp"
+                       id="head-classify-inp" data-id="200">
+                <a href="javascript:volid(0);" class="head-search-wrap"><i class="iconfont icon-search"></i></a>
+            </div>
+            <div class="user-center">
+                <div class="login-register">
+                    <a rel="nofollow" href="javascript:;" class="login">请登录</a>
+                    <a rel="nofollow" href="javascript:;" class="register">免费注册</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
 </div>
