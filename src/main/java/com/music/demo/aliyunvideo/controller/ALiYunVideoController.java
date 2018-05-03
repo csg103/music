@@ -29,7 +29,7 @@ public class ALiYunVideoController {
     @RequestMapping("/upload")
     public String helloHtml(HashMap<String, Object> map) {
         map.put("hello", "欢迎进入HTML页面");
-        return "/upload";
+        return "control/upload";
     }
 
     /**
@@ -40,15 +40,10 @@ public class ALiYunVideoController {
      */
     @RequestMapping("/getUploadAuth")
     @ResponseBody
-    public AjaxResult getUploadAuth(@RequestBody BaseVideoVO mes) {
-        CreateUploadVideoVo createUploadVideoVo = new CreateUploadVideoVo();
+    public AjaxResult getUploadAuth(@RequestBody CreateUploadVideoVo createUploadVideoVo) {
+//        CreateUploadVideoVo createUploadVideoVo = new CreateUploadVideoVo();
         createUploadVideoVo.setAction("CreateUploadVideo");
-        createUploadVideoVo.setTitle("音乐视频");
-        createUploadVideoVo.setFileName("exam3333ple.mp4");
         createUploadVideoVo.setCateId("71209652");
-        createUploadVideoVo.setFileSize("10234");
-        createUploadVideoVo.setDescription("音乐视频第2季描述");
-        createUploadVideoVo.setCoverURL("http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg");
         createUploadVideoVo.setTemplateGroupId("613c013504c0bb350eefffd2ae49b017");
         String returnStr = consumerService.getAliVideo(createUploadVideoVo);
 
