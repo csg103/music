@@ -25,6 +25,23 @@
 </tr>
 文件管理
 <hr/>
+大类型：
+<select name="fatherType" class="fatherType">
+    <option value=""></option>
+</select>
+小类型：
+<select name="detailType" class="detailType">
+    <option value=""></option>
+</select>
+课程：
+<select name="course" class="course">
+    <option value=""></option>
+</select>
+
+音乐视频：<input type="text" id="title" size="40" value="">
+文件名： <input type="text" id="fileName" size="40" value="">
+视频描述： <input type="text" id="description" size="40" value="">
+
 <input type="file" name="file" id="files" multiple/>
 <button type="button" onclick="clearInputFile()">清空继续选择</button>
 <button type="button" onclick="deleteFile()">删除文件</button>
@@ -58,6 +75,71 @@
 </html>
 
 <script th:inline="javascript">
+    var dataVideList = null;
+    $(function () {// 初始化内容
+        var url = "/product/getProductType";
+        $.ajax({
+            url: url,
+            type: 'post',
+            contentType: "application/json;charset=utf-8",
+            data: null,
+//            data:{"Title":"123abc","FileName":"csg","Description":"2017-01-02"},
+            success: function (data) {
+                dataVideList = data;
+
+                $.each(data.listProductType, function (n, value) {
+                    var option = $('<option id="' + value.productParentId + '" >').text(value.productParentName);
+                    $(".fatherType").append(option);
+                });
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        });
+
+
+    });
+    $(".fatherType").change(function () {
+// 先清空第二个
+        $(".detailType").empty();
+        $(".course").empty();
+        $.each(dataVideList.listProductType, function (n, value) {
+            if ($(".fatherType").val() == value.productParentName) {
+                $.each(value.listProductDatilType, function (n, value1) {
+                    var option1 = $('<option id="' + value1.productParentId + '">').text(value1.productParentName);
+                    $(".detailType").append(option1);
+                })
+
+            }
+
+
+        })
+    });
+
+    $(".detailType").change(function () {
+
+// 更新三级联动下拉框
+        $(".course").empty();
+
+        $.each(dataVideList.listProductType, function (n, value2) {
+            if ($(".fatherType").val() == value2.productParentName) {
+                $.each(value2.listProductDatilType, function (n, value) {
+                    if (($(".detailType ").val() == value.productParentName)) {
+                        $.each(value.courseRecommend, function (n, value1) {
+                            var option1 = $('<option id="' + value1.courseId + '" >').text(value1.courseName);
+                            $(".course").append(option1);
+                        })
+
+                    }
+
+
+                })
+            }
+        });
+    });
+
+
     var args = "";
 
 
@@ -114,6 +196,7 @@
     // 点播上传。每次上传都是独立的鉴权，所以初始化时，不需要设置鉴权
     // 临时账号过期时，在onUploadTokenExpired事件中，用resumeWithToken更新临时账号，上传会续传。
     var selectFile = function (event) {
+        alert();
         getAuth();
         var endpoint = document.getElementById("endpoint").value;
         var bucket = document.getElementById("bucket").value;
@@ -264,21 +347,33 @@
 
     function getAuth() {
 
+
+        alert();
+
+
+
+
         var url = "/getUploadAuth";
         $.ajax({
             url: url,
             type: 'post',
-            contentType : "application/json;charset=utf-8",
-            data:JSON.stringify({title:"音乐视频",fileName:"exam3333ple.mp4",fileSize:"1024",description:"测试音乐视频",coverURL:"http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"}),
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                title: "音乐视频",
+                fileName: "exam3333ple.mp4",
+                fileSize: "1024",
+                description: "测试音乐视频",
+                coverURL: "http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"
+            }),
 //            data:{"Title":"123abc","FileName":"csg","Description":"2017-01-02"},
             success: function (data) {
                 alert(data.data);
                 var obj = jQuery.parseJSON(data.data);
-                var retrunArgs=[];
+                var retrunArgs = [];
                 retrunArgs.push(obj.VideoId);
                 retrunArgs.push(obj.UploadAuth);
                 retrunArgs.push(obj.UploadAddress);
-                args=retrunArgs;
+                args = retrunArgs;
                 return args;
                 //UploadAddress VideoId UploadAuth
             }, error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -288,7 +383,7 @@
             }
         });
 
-
+        clearList();
     }
 
 </script>

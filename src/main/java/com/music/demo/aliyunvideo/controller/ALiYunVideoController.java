@@ -35,7 +35,7 @@ public class ALiYunVideoController {
     /**
      * 获取阿里云上传视频的空间 和将要上传的视频的权限 ID
      *
-     * @param mes
+     * @param createUploadVideoVo
      * @return
      */
     @RequestMapping("/getUploadAuth")
