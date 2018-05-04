@@ -8,11 +8,50 @@ public class ProductMes {
     @Column(name = "ID")
     private String id;
 
-    @Column(name = "c_product_parent_id")
-    private String productParentId;
+    @Column(name = "c_course_id")
+    private String courseId;
 
-    @Column(name = "c_product_parent_name")
-    private String productParentName;
+    @Column(name = "c_course_name")
+    private String courseName;
+
+    @Column(name = "c_course_type")
+    private String courseType;
+
+    @Column(name = "c_course_isfree")
+    private String courseIsfree;
+
+    @Column(name = "c_course_introduction")
+    private String courseIntroduction;
+
+    @Column(name = "c_course_owner_id")
+    private String courseOwnerId;
+
+    @Column(name = "c_course_teacher")
+    private String courseTeacher;
+
+    @Column(name = "c_course_times")
+    private String courseTimes;
+
+    @Column(name = "c_course_creater")
+    private String courseCreater;
+
+    @Column(name = "c_course_top_order")
+    private String courseTopOrder;
+
+    @Column(name = "c_product_middle_pic_list_id")
+    private String productMiddlePicListId;
+
+    @Column(name = "c_course_pic_url")
+    private String coursePicUrl;
+
+    @Column(name = "c_product_num")
+    private String productNum;
+
+    @Column(name = "c_course_sale_price")
+    private String courseSalePrice;
+
+    @Column(name = "c_course_price")
+    private String coursePrice;
 
     @Column(name = "c_text1")
     private String text1;
@@ -35,31 +74,213 @@ public class ProductMes {
     }
 
     /**
-     * @return c_product_parent_id
+     * @return c_course_id
      */
-    public String getProductParentId() {
-        return productParentId;
+    public String getCourseId() {
+        return courseId;
     }
 
     /**
-     * @param productParentId
+     * @param courseId
      */
-    public void setProductParentId(String productParentId) {
-        this.productParentId = productParentId;
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 
     /**
-     * @return c_product_parent_name
+     * @return c_course_name
      */
-    public String getProductParentName() {
-        return productParentName;
+    public String getCourseName() {
+        return courseName;
     }
 
     /**
-     * @param productParentName
+     * @param courseName
      */
-    public void setProductParentName(String productParentName) {
-        this.productParentName = productParentName;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    /**
+     * @return c_course_type
+     */
+    public String getCourseType() {
+        return courseType;
+    }
+
+    /**
+     * @param courseType
+     */
+    public void setCourseType(String courseType) {
+        this.courseType = courseType;
+    }
+
+    /**
+     * @return c_course_isfree
+     */
+    public String getCourseIsfree() {
+        return courseIsfree;
+    }
+
+    /**
+     * @param courseIsfree
+     */
+    public void setCourseIsfree(String courseIsfree) {
+        this.courseIsfree = courseIsfree;
+    }
+
+    /**
+     * @return c_course_introduction
+     */
+    public String getCourseIntroduction() {
+        return courseIntroduction;
+    }
+
+    /**
+     * @param courseIntroduction
+     */
+    public void setCourseIntroduction(String courseIntroduction) {
+        this.courseIntroduction = courseIntroduction;
+    }
+
+    /**
+     * @return c_course_owner_id
+     */
+    public String getCourseOwnerId() {
+        return courseOwnerId;
+    }
+
+    /**
+     * @param courseOwnerId
+     */
+    public void setCourseOwnerId(String courseOwnerId) {
+        this.courseOwnerId = courseOwnerId;
+    }
+
+    /**
+     * @return c_course_teacher
+     */
+    public String getCourseTeacher() {
+        return courseTeacher;
+    }
+
+    /**
+     * @param courseTeacher
+     */
+    public void setCourseTeacher(String courseTeacher) {
+        this.courseTeacher = courseTeacher;
+    }
+
+    /**
+     * @return c_course_times
+     */
+    public String getCourseTimes() {
+        return courseTimes;
+    }
+
+    /**
+     * @param courseTimes
+     */
+    public void setCourseTimes(String courseTimes) {
+        this.courseTimes = courseTimes;
+    }
+
+    /**
+     * @return c_course_creater
+     */
+    public String getCourseCreater() {
+        return courseCreater;
+    }
+
+    /**
+     * @param courseCreater
+     */
+    public void setCourseCreater(String courseCreater) {
+        this.courseCreater = courseCreater;
+    }
+
+    /**
+     * @return c_course_top_order
+     */
+    public String getCourseTopOrder() {
+        return courseTopOrder;
+    }
+
+    /**
+     * @param courseTopOrder
+     */
+    public void setCourseTopOrder(String courseTopOrder) {
+        this.courseTopOrder = courseTopOrder;
+    }
+
+    /**
+     * @return c_product_middle_pic_list_id
+     */
+    public String getProductMiddlePicListId() {
+        return productMiddlePicListId;
+    }
+
+    /**
+     * @param productMiddlePicListId
+     */
+    public void setProductMiddlePicListId(String productMiddlePicListId) {
+        this.productMiddlePicListId = productMiddlePicListId;
+    }
+
+    /**
+     * @return c_course_pic_url
+     */
+    public String getCoursePicUrl() {
+        return coursePicUrl;
+    }
+
+    /**
+     * @param coursePicUrl
+     */
+    public void setCoursePicUrl(String coursePicUrl) {
+        this.coursePicUrl = coursePicUrl;
+    }
+
+    /**
+     * @return c_product_num
+     */
+    public String getProductNum() {
+        return productNum;
+    }
+
+    /**
+     * @param productNum
+     */
+    public void setProductNum(String productNum) {
+        this.productNum = productNum;
+    }
+
+    /**
+     * @return c_course_sale_price
+     */
+    public String getCourseSalePrice() {
+        return courseSalePrice;
+    }
+
+    /**
+     * @param courseSalePrice
+     */
+    public void setCourseSalePrice(String courseSalePrice) {
+        this.courseSalePrice = courseSalePrice;
+    }
+
+    /**
+     * @return c_course_price
+     */
+    public String getCoursePrice() {
+        return coursePrice;
+    }
+
+    /**
+     * @param coursePrice
+     */
+    public void setCoursePrice(String coursePrice) {
+        this.coursePrice = coursePrice;
     }
 
     /**

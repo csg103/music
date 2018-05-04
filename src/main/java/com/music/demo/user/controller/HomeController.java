@@ -13,17 +13,17 @@ import java.util.Map;
 @Controller
 public class HomeController {
 
-    @RequestMapping({"/","/index"})
+    @RequestMapping("control")
     public String index(){
 
 //        RealmSecurityManager rsm = (RealmSecurityManager) SecurityUtils.getSecurityManager();
 //        MyShiroRealm realm = (MyShiroRealm)rsm.getRealms().iterator().next();
 //        realm.clearCachedAuthorization();
 
-        return"/model/PC/index";
+        return"control/upload";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/control/login")
     public String login(HttpServletRequest request, Map<String, Object> map) throws Exception{
         System.out.println("HomeController.login()");
         // 登录失败从request中获取shiro处理的异常信息。
@@ -48,7 +48,7 @@ public class HomeController {
         }
         map.put("msg", msg);
         // 此方法不处理登录成功,由shiro进行处理
-        return "/login";
+        return "control/login";
     }
 
 

@@ -6,9 +6,10 @@
       WARNING - @mbg.generated
     -->
     <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="c_product_type_id" jdbcType="VARCHAR" property="productTypeId" />
-    <result column="c_product_type_name" jdbcType="VARCHAR" property="productTypeName" />
-    <result column="c_product_type_parent_id" jdbcType="VARCHAR" property="productTypeParentId" />
+    <result column="c_product_parent_id" jdbcType="VARCHAR" property="productParentId" />
+    <result column="c_product_parent_name" jdbcType="VARCHAR" property="productParentName" />
+    <result column="c_text1" jdbcType="VARCHAR" property="text1" />
+    <result column="c_text2" jdbcType="VARCHAR" property="text2" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -46,7 +47,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    ID, c_product_type_id, c_product_type_name, c_product_type_parent_id
+    ID, c_product_parent_id, c_product_parent_name, c_text1, c_text2
   </sql>
   <select id="countByExample" parameterType="com.music.demo.dao.entity.mybatis.ProductTypeExample" resultType="java.lang.Long">
     <!--

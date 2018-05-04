@@ -28,6 +28,35 @@ $(function(){
 		});
 	});
 	
+	$(".banner-swiper").each(function(i,elem){
+		var btnnl = $(this).find(".swiper-button-next").addClass("swiper-button-next"+i);
+		var btnnR = $(this).find(".swiper-button-prev").addClass("swiper-button-prev"+i);
+		var swiper = new Swiper($(this).find('.swiper-container'), {
+//		    slidesPerView: 4,
+		    spaceBetween: 30,
+//		    slidesPerGroup: 4,
+			pagination: {
+		    	el: '.swiper-pagination',
+			},
+		    loop: true,
+		    loopFillGroupWithBlank: false,
+		    navigation: {
+		        nextEl: btnnl,
+		        prevEl: btnnR,
+		    },
+		    on: {
+			    resize: function(){
+			    	swiper.update();
+			    	setTimeout(function(){
+			    		swiper.update();
+			    	},200)
+			    	
+			      //窗口变化了
+			    }, 
+			},
+		});
+	});
+	
 	//栏目标题
 	$(".title-1").each(function(){
 		$(this).find("h2").find("a").text($(this).parents(".menuTitle").attr("cnTitle"));
@@ -61,7 +90,16 @@ $(function(){
 	})
 	$(".leftMenu").css("margin-top",-$(".leftMenu").height()/2)
 	$(".leftMenu").delegate("li","click",function(){
-		var liTop = $(".js_floor").eq($(this).index()).offset().top;
+		var liTop = $(".js_floor").eq($(this).index()).offset().top-$(".pb-float-head").outerHeight(true,true);
 		$('body,html').stop().animate({scrollTop:liTop},1000);
+	})
+	
+	//顶部跟随
+	$(window).scroll(function(){
+		if($(window).scrollTop()>=100){
+			$("#top").fadeIn()
+		}else{
+			$("#top").fadeOut()
+		}
 	})
 });

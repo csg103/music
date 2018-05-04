@@ -24,6 +24,7 @@ public class ShiroConfig {
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
         // 配置不会被拦截的链接 顺序判断
 
+        filterChainDefinitionMap.put("/product/**", "anon");
         filterChainDefinitionMap.put("/index", "anon");
         filterChainDefinitionMap.put("/", "anon");
         filterChainDefinitionMap.put("/js/**", "anon");
@@ -38,11 +39,11 @@ public class ShiroConfig {
 
 
 
-        filterChainDefinitionMap.put("/**", "authc");
+//        filterChainDefinitionMap.put("/**", "authc");
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setLoginUrl("/control/login");
         // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/index");
+        shiroFilterFactoryBean.setSuccessUrl("/control/upload");
 
         //未授权界面;
         shiroFilterFactoryBean.setUnauthorizedUrl("/403");

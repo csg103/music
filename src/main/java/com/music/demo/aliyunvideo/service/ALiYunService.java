@@ -26,9 +26,6 @@ public class ALiYunService {
      baseVideoVO.setTimestamp(generateTimestamp());
      baseVideoVO.setSignatureVersion("1.0");
      baseVideoVO.setSignatureNonce(generateRandom());
-
-
-
      return baseVideoVO;
  }
 }

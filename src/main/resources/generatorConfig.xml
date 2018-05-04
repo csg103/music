@@ -27,27 +27,27 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
         <!--<table tableName="t_pic_list" domainObjectName="PicList" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
-        <!--<table tableName="t_product_mes" domainObjectName="ProductMes" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
+        <table tableName="t_product_mes" domainObjectName="ProductMes" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
 
-        <!--<table tableName="t_product_owner" domainObjectName="ProductOwner" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
+        <!--<table tableName="t_product_detail" domainObjectName="ProductDetail" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
         <!--<table tableName="t_product_type" domainObjectName="ProductType" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
         <!--<table tableName="t_product_rel" domainObjectName="ProductRel" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
 
-        <table tableName="sys_role" domainObjectName="SysRole" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
+        <!--<table tableName="sys_role" domainObjectName="SysRole" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
 
-        <table tableName="sys_role_permission" domainObjectName="SysRolePermission" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
+        <!--<table tableName="sys_role_permission" domainObjectName="SysRolePermission" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
 
-        <table tableName="sys_user_role" domainObjectName="SysUserRole" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
+        <!--<table tableName="sys_user_role" domainObjectName="SysUserRole" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
 
-        <table tableName="sys_permission" domainObjectName="SysPermission" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
+        <!--<table tableName="sys_permission" domainObjectName="SysPermission" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
-        <table tableName="user_info" domainObjectName="UserInfo" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
+        <!--<table tableName="user_info" domainObjectName="UserInfo" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
     </context>
 </generatorConfiguration>

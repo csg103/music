@@ -268,10 +268,11 @@
         $.ajax({
             url: url,
             type: 'post',
-            dataType: 'json',
-            data: null,
+            contentType : "application/json;charset=utf-8",
+            data:JSON.stringify({title:"音乐视频",fileName:"exam3333ple.mp4",fileSize:"1024",description:"测试音乐视频",coverURL:"http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"}),
+//            data:{"Title":"123abc","FileName":"csg","Description":"2017-01-02"},
             success: function (data) {
-//                alert(data.data);
+                alert(data.data);
                 var obj = jQuery.parseJSON(data.data);
                 var retrunArgs=[];
                 retrunArgs.push(obj.VideoId);
