@@ -36,13 +36,14 @@
 课程：
 <select name="course" class="course">
     <option value=""></option>
+
 </select>
+<div class="selectId" value="" style="display: none"></div>
 
-音乐视频：<input type="text" id="title" size="40" value="">
-文件名： <input type="text" id="fileName" size="40" value="">
-视频描述： <input type="text" id="description" size="40" value="">
-
-<input type="file" name="file" id="files" multiple/>
+视频描述： <input type="text" class="description" size="40" value="">
+时长： <input type="text" class="time" size="40" value="">
+<input type="checkbox" class="modelFlag" value="1" name="sProblem">使用模板
+<input type="file" name="file" class="uploadFIle" id="files" multiple/>
 <button type="button" onclick="clearInputFile()">清空继续选择</button>
 <button type="button" onclick="deleteFile()">删除文件</button>
 <input type="text" id="deleteIndex" size="3" value="0">
@@ -128,6 +129,8 @@
                     if (($(".detailType ").val() == value.productParentName)) {
                         $.each(value.courseRecommend, function (n, value1) {
                             var option1 = $('<option id="' + value1.courseId + '" >').text(value1.courseName);
+                            //赋值第一个 当改变时候在联动赋值
+                            if (n == 0) $(".selectId").attr("value", value1.courseId);
                             $(".course").append(option1);
                         })
 
@@ -137,7 +140,12 @@
                 })
             }
         });
+
     });
+
+    $(".course").change(function () {
+        $(".selectId").attr("value", $(".course").find("option:selected").attr("id"))
+    })
 
 
     var args = "";
@@ -154,6 +162,7 @@
         },
         // 文件上传完成
         'onUploadSucceed': function (uploadInfo) {
+            uploadVideoFlag(uploadInfo.file.name);
             log("onUploadSucceed: " + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object);
         },
         // 文件上传进度
@@ -196,7 +205,6 @@
     // 点播上传。每次上传都是独立的鉴权，所以初始化时，不需要设置鉴权
     // 临时账号过期时，在onUploadTokenExpired事件中，用resumeWithToken更新临时账号，上传会续传。
     var selectFile = function (event) {
-        alert();
         getAuth();
         var endpoint = document.getElementById("endpoint").value;
         var bucket = document.getElementById("bucket").value;
@@ -225,9 +233,25 @@
     };
 
 
-    document.getElementById("files")
-        .addEventListener('change', selectFile);
-
+    document.getElementById("files").addEventListener('change', selectFile);
+    function uploadVideoFlag(fileName) {
+        var url = "/updateUploadFlag";
+        $.ajax({
+            url: url,
+            type: 'post',
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                courseTitle: fileName
+            }),
+            success: function (data) {
+                alert(data.message);
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        });
+    }
     function start() {
         log("start upload.");
         uploader.startUpload();
@@ -346,28 +370,26 @@
     }
 
     function getAuth() {
-
-
-        alert();
-
-
-
-
+        var courseId = $(".selectId").attr("value"), time = $(".time").attr("value"), title = $(".title").attr("value"),modelFlag =$(".modelFlag").attr("checked"),
+            description = $(".description").attr("value"), file = $(".uploadFIle"), arr = file.val().split('\\');
+        var fileName = arr[arr.length - 1];
         var url = "/getUploadAuth";
         $.ajax({
             url: url,
             type: 'post',
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify({
-                title: "音乐视频",
-                fileName: "exam3333ple.mp4",
+                modelFlag:modelFlag,
+                courseId: courseId,
+                title: fileName,
+//                fileSize:fileSize,
+                time: time,
+                fileName: fileName,
                 fileSize: "1024",
-                description: "测试音乐视频",
-                coverURL: "http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"
+                description: description
+//                coverURL: "http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"
             }),
-//            data:{"Title":"123abc","FileName":"csg","Description":"2017-01-02"},
             success: function (data) {
-                alert(data.data);
                 var obj = jQuery.parseJSON(data.data);
                 var retrunArgs = [];
                 retrunArgs.push(obj.VideoId);

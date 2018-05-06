@@ -27,9 +27,9 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />
         <!--<table tableName="t_pic_list" domainObjectName="PicList" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
-        <table tableName="t_product_mes" domainObjectName="ProductMes" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
+        <!--<table tableName="t_product_mes" domainObjectName="ProductMes" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
-        <!--<table tableName="t_product_detail" domainObjectName="ProductDetail" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
+        <table tableName="t_product_detail" domainObjectName="ProductDetail" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>
 
         <!--<table tableName="t_product_type" domainObjectName="ProductType" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false"><columnRenamingRule searchString="^c_|^d_|^n_" replaceString="" /></table>-->
 
