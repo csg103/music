@@ -19,36 +19,10 @@
         width: '500px',
         height:"500px",
         autoplay: false,
-        //支持播放地址播放,此播放优先级最高
-        source : 'http://zhibo.crionline.cn/AppName/StreamName.m3u8?auth_key=1521794659-0-0-c2780da7ee31eee566d9dbf693e5af2d',
+        vid : '7f78577aa86c428aae7894bd2c08ff98',
+        playauth : playAuth,
+        useFlashPrism:true
 
-
-        //播放方式二：点播用户推荐
-//        vid : '97b82913bd8346f087a6b5eed2820757',
-//        playauth : playAuth,
-//        cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png',
-//        waterMark:"http://dongchics.oss-cn-hangzhou.aliyuncs.com/1.png|TL|1|0.5",
-
-//    playsinline:true,
-    //extraInfo:{"fullTitle":"我是标题","liveStartTime":"2017/08/17 12:00:00","liveOverTime":"2017/08/17 14:00:00"},
-    //cover: "http://cdnoss.youkouyang.com/cover.png",
-        isLive: true,
-        //useH5Prism:true,
-        //preload: true,
-//        useFlashPrism:true,
-    //format:'m3u8',
-        //播放方式三：仅MPS用户使用
-//        vid : '',
-//        accId: '',
-//        accSecret: '',
-//        stsToken: '',
-//        domainRegion: '',
-//        authInfo: '',
-//        //播放方式四：使用STS方式播放
-//        vid : '',
-//        accessKeyId: '',
-//        securityToken: '',
-//        accessKeySecret: ''
     },function(player){
         console.log('播放器创建好了。')
     });

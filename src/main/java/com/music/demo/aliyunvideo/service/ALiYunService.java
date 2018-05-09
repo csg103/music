@@ -18,9 +18,8 @@ import static com.music.demo.aliyunvideo.Utils.AliyunVideoUtils.generateTimestam
 @Service
 public class ALiYunService {
 
-    public String getAliVideo(BaseVideoVO vo) {
+    public String getAliVideo(BaseVideoVO vo) throws Exception {
         String returnStr = AliyunVideoUtils.getAliyunVideoReturn(getBaseVO(), vo);
-
         return returnStr;
     }
 

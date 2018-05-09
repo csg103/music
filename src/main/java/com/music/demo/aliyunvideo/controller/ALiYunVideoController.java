@@ -1,6 +1,7 @@
 package com.music.demo.aliyunvideo.controller;
 
 
+import com.music.demo.aliyunvideo.Utils.AliyunVideoUtils;
 import com.music.demo.aliyunvideo.service.ALiYunService;
 import com.music.demo.aliyunvideo.vo.aliyunvo.CreateUploadVideoVo;
 import com.music.demo.aliyunvideo.vo.aliyunvo.GetVideoAddressVo;
@@ -48,8 +49,8 @@ public class ALiYunVideoController {
         AjaxResult result = new AjaxResult();
         createUploadVideoVo.setAction("CreateUploadVideo");
         createUploadVideoVo.setCateId("71209652");
-        if(!StringUtils.isEmpty(createUploadVideoVo.getModelFlag()))
-        createUploadVideoVo.setTemplateGroupId("613c013504c0bb350eefffd2ae49b017");
+        if (!StringUtils.isEmpty(createUploadVideoVo.getModelFlag()))
+            createUploadVideoVo.setTemplateGroupId("613c013504c0bb350eefffd2ae49b017");
 
         //{"UploadAddress":"eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6ImluLTIwMTgwMjI4MTcyNzEwNjU2LXM2b3VrOG95YXkiLCJGaWxlTmFtZSI6InZpZGVvLzE4ZGZjNDI0LTE2MzJiMjliY2Y4LTAwMDYtNDFmYi1mNWMtNDNjZGEubXA0In0=",
         // "VideoId":"8594a98b0a1d40d399a9d7d52bbb1404",
@@ -58,12 +59,20 @@ public class ALiYunVideoController {
 //        8594a98b0a1d40d399a9d7d52bbb1404  0000010102002
 
         //上传视频提权，获得阿里云视频ID 空间 上传服务器 鉴权等信息
-        String returnStr = aLiYunService.getAliVideo(createUploadVideoVo);
-        if (org.springframework.util.StringUtils.isEmpty(returnStr)) {
+        String returnStr = "";
+        try {
+            returnStr = aLiYunService.getAliVideo(createUploadVideoVo);
+        } catch (Exception e) {
+
+            result.setCode("0");
+            return result;
+
+        }
+        if (StringUtils.isEmpty(returnStr)) {
+
             result.setCode("0");
             return result;
         }
-
         //查询数据库中
         List<ProductDetail> list = productService.getProductMes(createUploadVideoVo);
         //组装将要保存的参数
@@ -72,30 +81,32 @@ public class ALiYunVideoController {
 
         //保存将要上传的视频ID
         productService.saveProductDetail(productDetail);
-
+        result.setCode("1");
         result.setData(returnStr);
         return result;
     }
 
 
-
-
     @RequestMapping("/getPlayAuth")
     @ResponseBody
     public AjaxResult getPlayAuth(HashMap<String, Object> map) {
-
+        AjaxResult result = new AjaxResult();
         GetVideoAddressVo getVideoAddressVo = new GetVideoAddressVo();
         getVideoAddressVo.setAction("GetPlayInfo");
-        getVideoAddressVo.setVideoId("97b82913bd8346f087a6b5eed2820757");
+        getVideoAddressVo.setVideoId("7f78577aa86c428aae7894bd2c08ff98");
         getVideoAddressVo.setFormats("HLS");
-        getVideoAddressVo.setAuthTimeout("3600");
+        getVideoAddressVo.setAuthTimeout("1800");
 //            getVideoAddressVo.setStreamType("");
 //            getVideoAddressVo.setDefinition("");
+        String returnStr = "";
+        try {
+            returnStr = aLiYunService.getAliVideo(getVideoAddressVo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setCode("0");
+            return result;
+        }
 
-
-        String returnStr = aLiYunService.getAliVideo(getVideoAddressVo);
-
-        AjaxResult result = new AjaxResult();
         result.setData(returnStr);
         return result;
 //            return null;
@@ -104,30 +115,30 @@ public class ALiYunVideoController {
 
     @RequestMapping("/play")
     public String play(HashMap<String, Object> map) {
-//           String playAuth = AliyunVideoUtils.  getPlayAuth("97b82913bd8346f087a6b5eed2820757");
-//            map.put("playAuth", playAuth);
+        String playAuth = AliyunVideoUtils.getPlayAuth("7f78577aa86c428aae7894bd2c08ff98");
+        map.put("playAuth", playAuth);
         return "/play";
     }
+
     @RequestMapping("/updateUploadFlag")
     @ResponseBody
     public AjaxResult updateUploadFlag(@RequestBody ProductDetail productDetail) {
         AjaxResult result = new AjaxResult();
-   int i =     productService.updateUploadFlag(productDetail.getCourseTitle());
+        int i = productService.updateUploadFlag(productDetail.getCourseTitle());
 //           String playAuth = AliyunVideoUtils.  getPlayAuth("97b82913bd8346f087a6b5eed2820757");
 //            map.put("playAuth", playAuth);
-        if(i==1) {
+        if (i == 1) {
             result.setCode("1");
             result.setMessage("视频上传成功");
-        }else if(i>1){
+        } else if (i > 1) {
             result.setCode("0");
             result.setMessage("具有多个视频相同名称的视频状态已经被更改");
-        }else{
+        } else {
             result.setCode("0");
             result.setMessage(" 更新状态失败");
         }
         return result;
     }
-
 
 
 }

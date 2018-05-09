@@ -234,6 +234,7 @@
 
 
     document.getElementById("files").addEventListener('change', selectFile);
+
     function uploadVideoFlag(fileName) {
         var url = "/updateUploadFlag";
         $.ajax({
@@ -252,6 +253,7 @@
             }
         });
     }
+
     function start() {
         log("start upload.");
         uploader.startUpload();
@@ -370,7 +372,8 @@
     }
 
     function getAuth() {
-        var courseId = $(".selectId").attr("value"), time = $(".time").attr("value"), title = $(".title").attr("value"),modelFlag =$(".modelFlag").attr("checked"),
+        var courseId = $(".selectId").attr("value"), time = $(".time").attr("value"), title = $(".title").attr("value"),
+            modelFlag = $(".modelFlag").attr("checked"),
             description = $(".description").attr("value"), file = $(".uploadFIle"), arr = file.val().split('\\');
         var fileName = arr[arr.length - 1];
         var url = "/getUploadAuth";
@@ -379,7 +382,7 @@
             type: 'post',
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify({
-                modelFlag:modelFlag,
+                modelFlag: modelFlag,
                 courseId: courseId,
                 title: fileName,
 //                fileSize:fileSize,
@@ -390,22 +393,32 @@
 //                coverURL: "http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"
             }),
             success: function (data) {
-                var obj = jQuery.parseJSON(data.data);
-                var retrunArgs = [];
-                retrunArgs.push(obj.VideoId);
-                retrunArgs.push(obj.UploadAuth);
-                retrunArgs.push(obj.UploadAddress);
-                args = retrunArgs;
-                return args;
-                //UploadAddress VideoId UploadAuth
-            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
-            }
-        });
 
-        clearList();
+                if (data.code == 1) {
+                    alert("获取上传ID成功");
+                    var obj = jQuery.parseJSON(data.data);
+                    var retrunArgs = [];
+                    retrunArgs.push(obj.VideoId);
+                    retrunArgs.push(obj.UploadAuth);
+                    retrunArgs.push(obj.UploadAddress);
+                    args = retrunArgs;
+                    return args;
+                }else{
+                alert("获取上传ID失败");
+    }
+        //UploadAddress VideoId UploadAuth
+    },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    }
+
+    )
+    ;
+
+    clearList();
     }
 
 </script>
