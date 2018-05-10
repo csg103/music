@@ -1470,7 +1470,7 @@ a:hover {
 .player_panel .chapter_panel .c_name {
 	display: block;
 	float: left;
-	width: 180px;
+	width: 175px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap
