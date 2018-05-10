@@ -93,7 +93,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDetail> getProductDetail(String courseId){
 
         ProductDetailExample pe = new ProductDetailExample();
-        pe.setOrderByClause("c_course_detail_id desc");
+        pe.setOrderByClause("c_course_detail_id asc");
         ProductDetailExample.Criteria criteria = pe.createCriteria();
         criteria.andCourseDetailIdLike(courseId+"%");
         return  productDetailMapper.selectByExample(pe);
