@@ -25,7 +25,25 @@
 </tr>
 文件管理
 <hr/>
-<input type="file" name="file" id="files" multiple/>
+大类型：
+<select name="fatherType" class="fatherType">
+    <option value=""></option>
+</select>
+小类型：
+<select name="detailType" class="detailType">
+    <option value=""></option>
+</select>
+课程：
+<select name="course" class="course">
+    <option value=""></option>
+
+</select>
+<div class="selectId" value="" style="display: none"></div>
+
+视频描述： <input type="text" class="description" size="40" value="">
+时长： <input type="text" class="time" size="40" value="">
+<input type="checkbox" class="modelFlag" value="1" name="sProblem">使用模板
+<input type="file" name="file" class="uploadFIle" id="files" multiple/>
 <button type="button" onclick="clearInputFile()">清空继续选择</button>
 <button type="button" onclick="deleteFile()">删除文件</button>
 <input type="text" id="deleteIndex" size="3" value="0">
@@ -58,6 +76,78 @@
 </html>
 
 <script th:inline="javascript">
+    var dataVideList = null;
+    $(function () {// 初始化内容
+        var url = "/product/getProductType";
+        $.ajax({
+            url: url,
+            type: 'post',
+            contentType: "application/json;charset=utf-8",
+            data: null,
+//            data:{"Title":"123abc","FileName":"csg","Description":"2017-01-02"},
+            success: function (data) {
+                dataVideList = data;
+
+                $.each(data.listProductType, function (n, value) {
+                    var option = $('<option id="' + value.productParentId + '" >').text(value.productParentName);
+                    $(".fatherType").append(option);
+                });
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        });
+
+
+    });
+    $(".fatherType").change(function () {
+// 先清空第二个
+        $(".detailType").empty();
+        $(".course").empty();
+        $.each(dataVideList.listProductType, function (n, value) {
+            if ($(".fatherType").val() == value.productParentName) {
+                $.each(value.listProductDatilType, function (n, value1) {
+                    var option1 = $('<option id="' + value1.productParentId + '">').text(value1.productParentName);
+                    $(".detailType").append(option1);
+                })
+
+            }
+
+
+        })
+    });
+
+    $(".detailType").change(function () {
+
+// 更新三级联动下拉框
+        $(".course").empty();
+
+        $.each(dataVideList.listProductType, function (n, value2) {
+            if ($(".fatherType").val() == value2.productParentName) {
+                $.each(value2.listProductDatilType, function (n, value) {
+                    if (($(".detailType ").val() == value.productParentName)) {
+                        $.each(value.courseRecommend, function (n, value1) {
+                            var option1 = $('<option id="' + value1.courseId + '" >').text(value1.courseName);
+                            //赋值第一个 当改变时候在联动赋值
+                            if (n == 0) $(".selectId").attr("value", value1.courseId);
+                            $(".course").append(option1);
+                        })
+
+                    }
+
+
+                })
+            }
+        });
+
+    });
+
+    $(".course").change(function () {
+        $(".selectId").attr("value", $(".course").find("option:selected").attr("id"))
+    })
+
+
     var args = "";
 
 
@@ -72,6 +162,7 @@
         },
         // 文件上传完成
         'onUploadSucceed': function (uploadInfo) {
+            uploadVideoFlag(uploadInfo.file.name);
             log("onUploadSucceed: " + uploadInfo.file.name + ", endpoint:" + uploadInfo.endpoint + ", bucket:" + uploadInfo.bucket + ", object:" + uploadInfo.object);
         },
         // 文件上传进度
@@ -142,8 +233,26 @@
     };
 
 
-    document.getElementById("files")
-        .addEventListener('change', selectFile);
+    document.getElementById("files").addEventListener('change', selectFile);
+
+    function uploadVideoFlag(fileName) {
+        var url = "/updateUploadFlag";
+        $.ajax({
+            url: url,
+            type: 'post',
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                courseTitle: fileName
+            }),
+            success: function (data) {
+                alert(data.message);
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        });
+    }
 
     function start() {
         log("start upload.");
@@ -263,32 +372,53 @@
     }
 
     function getAuth() {
-
+        var courseId = $(".selectId").attr("value"), time = $(".time").attr("value"), title = $(".title").attr("value"),
+            modelFlag = $(".modelFlag").attr("checked"),
+            description = $(".description").attr("value"), file = $(".uploadFIle"), arr = file.val().split('\\');
+        var fileName = arr[arr.length - 1];
         var url = "/getUploadAuth";
         $.ajax({
             url: url,
             type: 'post',
-            contentType : "application/json;charset=utf-8",
-            data:JSON.stringify({title:"音乐视频",fileName:"exam3333ple.mp4",fileSize:"1024",description:"测试音乐视频",coverURL:"http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"}),
-//            data:{"Title":"123abc","FileName":"csg","Description":"2017-01-02"},
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                modelFlag: modelFlag,
+                courseId: courseId,
+                title: fileName,
+//                fileSize:fileSize,
+                time: time,
+                fileName: fileName,
+                fileSize: "1024",
+                description: description
+//                coverURL: "http://impamp.crionline.cn:8081/M00/15/DE/ZSUfPFqaNPSAFcsNAAExefXtkEk805.jpg"
+            }),
             success: function (data) {
-                alert(data.data);
-                var obj = jQuery.parseJSON(data.data);
-                var retrunArgs=[];
-                retrunArgs.push(obj.VideoId);
-                retrunArgs.push(obj.UploadAuth);
-                retrunArgs.push(obj.UploadAddress);
-                args=retrunArgs;
-                return args;
-                //UploadAddress VideoId UploadAuth
-            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(XMLHttpRequest.status);
-                alert(XMLHttpRequest.readyState);
-                alert(textStatus);
-            }
-        });
 
+                if (data.code == 1) {
+                    alert("获取上传ID成功");
+                    var obj = jQuery.parseJSON(data.data);
+                    var retrunArgs = [];
+                    retrunArgs.push(obj.VideoId);
+                    retrunArgs.push(obj.UploadAuth);
+                    retrunArgs.push(obj.UploadAddress);
+                    args = retrunArgs;
+                    return args;
+                }else{
+                alert("获取上传ID失败");
+    }
+        //UploadAddress VideoId UploadAuth
+    },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(XMLHttpRequest.status);
+            alert(XMLHttpRequest.readyState);
+            alert(textStatus);
+        }
+    }
 
+    )
+    ;
+
+    clearList();
     }
 
 </script>

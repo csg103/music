@@ -10,6 +10,36 @@ public class CreateUploadVideoVo extends BaseVideoVO {
     private String CateId;
     private String Tags;
 
+    public String getModelFlag() {
+        return modelFlag;
+    }
+
+    public void setModelFlag(String modelFlag) {
+        this.modelFlag = modelFlag;
+    }
+
+    private String modelFlag;
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
+
+    private String Time;
+
+    public String getCourseId() {
+        return CourseId;
+    }
+
+    public void setCourseId(String courseId) {
+        CourseId = courseId;
+    }
+
+    private String CourseId;
+
     public String getAction() {
         return Action;
     }

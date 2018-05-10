@@ -1,12 +1,16 @@
 package com.music.demo.product.service.impl;
 
 import com.music.demo.aliyunvideo.Utils.PropertiesCopyUtil;
+import com.music.demo.aliyunvideo.vo.aliyunvo.CreateUploadVideoVo;
 import com.music.demo.aliyunvideo.vo.returnvo.CourseRecommend;
 import com.music.demo.aliyunvideo.vo.returnvo.ProductDatilType;
 import com.music.demo.aliyunvideo.vo.returnvo.ReturnProductMes;
 import com.music.demo.aliyunvideo.vo.returnvo.ProductType;
+import com.music.demo.dao.dao.mybatis.ProductDetailMapper;
 import com.music.demo.dao.dao.mybatis.ProductMesMapper;
 import com.music.demo.dao.dao.mybatis.ProductTypeMapper;
+import com.music.demo.dao.entity.mybatis.ProductDetail;
+import com.music.demo.dao.entity.mybatis.ProductDetailExample;
 import com.music.demo.dao.entity.mybatis.ProductMes;
 import com.music.demo.dao.entity.mybatis.ProductMesExample;
 import com.music.demo.product.service.ProductService;
@@ -23,10 +27,16 @@ public class ProductServiceImpl implements ProductService {
     ProductTypeMapper productTypeMapper;
     @Autowired
     ProductMesMapper productMesMapper;
-
+    @Autowired
+    ProductDetailMapper  productDetailMapper;
     private List<com.music.demo.dao.entity.mybatis.ProductType> getAllProdctType() {
         List<com.music.demo.dao.entity.mybatis.ProductType> listproType = productTypeMapper.selectAll();
         return listproType;
+    }
+
+    public int saveProductDetail(ProductDetail productDetail){
+     return   productDetailMapper.insert(productDetail);
+
     }
 
 //    public List<com.music.demo.dao.entity.mybatis.ProductType> getProdctType() {
@@ -41,9 +51,29 @@ public class ProductServiceImpl implements ProductService {
 //    }
 
 
+    public List<ProductDetail> getProductMes(CreateUploadVideoVo createUploadVideoVo) {
+
+        ProductDetailExample pe = new ProductDetailExample();
+        pe.setOrderByClause("c_course_detail_id desc");
+        ProductDetailExample.Criteria criteria = pe.createCriteria();
+        criteria.andCourseDetailIdLike(createUploadVideoVo.getCourseId()+"%");
+        List list = productDetailMapper.selectByExample(pe);
+
+        return list;
+    }
+
+    public  int updateUploadFlag(String fileName){
+        ProductDetailExample pe = new ProductDetailExample();
+        ProductDetailExample.Criteria criteria = pe.createCriteria();
+        criteria.andCourseTitleEqualTo(fileName);
+        ProductDetail ProductDetail =new ProductDetail();
+        ProductDetail.setCourseFlag("1");
+       return  productDetailMapper.updateByExampleSelective(ProductDetail,pe);
+
+    }
     private List<ProductMes> getProductMes() {
         ProductMesExample pe = new ProductMesExample();
-        pe.setOrderByClause("c_course_top_order");
+        pe.setOrderByClause("c_course_top_order ");
         ProductMesExample.Criteria criteria = pe.createCriteria();
         List list = productMesMapper.selectByExample(pe);
 

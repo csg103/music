@@ -8,7 +8,9 @@
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="c_course_detail_id" jdbcType="VARCHAR" property="courseDetailId" />
     <result column="c_course_detail_aili_id" jdbcType="VARCHAR" property="courseDetailAiliId" />
+    <result column="c_course_flag" jdbcType="VARCHAR" property="courseFlag" />
     <result column="c_course_title" jdbcType="VARCHAR" property="courseTitle" />
+    <result column="c_course_upload_time" jdbcType="TIME" property="courseUploadTime" />
     <result column="c_course_time" jdbcType="VARCHAR" property="courseTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -47,7 +49,8 @@
     <!--
       WARNING - @mbg.generated
     -->
-    ID, c_course_detail_id, c_course_detail_aili_id, c_course_title, c_course_time
+    ID, c_course_detail_id, c_course_detail_aili_id, c_course_flag, c_course_title, c_course_upload_time, 
+    c_course_time
   </sql>
   <select id="countByExample" parameterType="com.music.demo.dao.entity.mybatis.ProductDetailExample" resultType="java.lang.Long">
     <!--

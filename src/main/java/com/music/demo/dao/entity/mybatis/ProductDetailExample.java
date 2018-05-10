@@ -1,6 +1,8 @@
 package com.music.demo.dao.entity.mybatis;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class ProductDetailExample {
@@ -102,6 +104,32 @@ public class ProductDetailExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        protected void addCriterionForJDBCTime(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Time(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCTime(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Time> timeList = new ArrayList<java.sql.Time>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                timeList.add(new java.sql.Time(iter.next().getTime()));
+            }
+            addCriterion(condition, timeList, property);
+        }
+
+        protected void addCriterionForJDBCTime(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Time(value1.getTime()), new java.sql.Time(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -314,6 +342,76 @@ public class ProductDetailExample {
             return (Criteria) this;
         }
 
+        public Criteria andCourseFlagIsNull() {
+            addCriterion("c_course_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagIsNotNull() {
+            addCriterion("c_course_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagEqualTo(String value) {
+            addCriterion("c_course_flag =", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagNotEqualTo(String value) {
+            addCriterion("c_course_flag <>", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagGreaterThan(String value) {
+            addCriterion("c_course_flag >", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagGreaterThanOrEqualTo(String value) {
+            addCriterion("c_course_flag >=", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagLessThan(String value) {
+            addCriterion("c_course_flag <", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagLessThanOrEqualTo(String value) {
+            addCriterion("c_course_flag <=", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagLike(String value) {
+            addCriterion("c_course_flag like", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagNotLike(String value) {
+            addCriterion("c_course_flag not like", value, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagIn(List<String> values) {
+            addCriterion("c_course_flag in", values, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagNotIn(List<String> values) {
+            addCriterion("c_course_flag not in", values, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagBetween(String value1, String value2) {
+            addCriterion("c_course_flag between", value1, value2, "courseFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseFlagNotBetween(String value1, String value2) {
+            addCriterion("c_course_flag not between", value1, value2, "courseFlag");
+            return (Criteria) this;
+        }
+
         public Criteria andCourseTitleIsNull() {
             addCriterion("c_course_title is null");
             return (Criteria) this;
@@ -381,6 +479,66 @@ public class ProductDetailExample {
 
         public Criteria andCourseTitleNotBetween(String value1, String value2) {
             addCriterion("c_course_title not between", value1, value2, "courseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeIsNull() {
+            addCriterion("c_course_upload_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeIsNotNull() {
+            addCriterion("c_course_upload_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeEqualTo(Date value) {
+            addCriterionForJDBCTime("c_course_upload_time =", value, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeNotEqualTo(Date value) {
+            addCriterionForJDBCTime("c_course_upload_time <>", value, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeGreaterThan(Date value) {
+            addCriterionForJDBCTime("c_course_upload_time >", value, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCTime("c_course_upload_time >=", value, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeLessThan(Date value) {
+            addCriterionForJDBCTime("c_course_upload_time <", value, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCTime("c_course_upload_time <=", value, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeIn(List<Date> values) {
+            addCriterionForJDBCTime("c_course_upload_time in", values, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeNotIn(List<Date> values) {
+            addCriterionForJDBCTime("c_course_upload_time not in", values, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeBetween(Date value1, Date value2) {
+            addCriterionForJDBCTime("c_course_upload_time between", value1, value2, "courseUploadTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseUploadTimeNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCTime("c_course_upload_time not between", value1, value2, "courseUploadTime");
             return (Criteria) this;
         }
 

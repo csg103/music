@@ -1,5 +1,6 @@
 package com.music.demo.dao.entity.mybatis;
 
+import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "t_product_detail")
@@ -14,8 +15,14 @@ public class ProductDetail {
     @Column(name = "c_course_detail_aili_id")
     private String courseDetailAiliId;
 
+    @Column(name = "c_course_flag")
+    private String courseFlag;
+
     @Column(name = "c_course_title")
     private String courseTitle;
+
+    @Column(name = "c_course_upload_time")
+    private Date courseUploadTime;
 
     @Column(name = "c_course_time")
     private String courseTime;
@@ -63,6 +70,20 @@ public class ProductDetail {
     }
 
     /**
+     * @return c_course_flag
+     */
+    public String getCourseFlag() {
+        return courseFlag;
+    }
+
+    /**
+     * @param courseFlag
+     */
+    public void setCourseFlag(String courseFlag) {
+        this.courseFlag = courseFlag;
+    }
+
+    /**
      * @return c_course_title
      */
     public String getCourseTitle() {
@@ -74,6 +95,20 @@ public class ProductDetail {
      */
     public void setCourseTitle(String courseTitle) {
         this.courseTitle = courseTitle;
+    }
+
+    /**
+     * @return c_course_upload_time
+     */
+    public Date getCourseUploadTime() {
+        return courseUploadTime;
+    }
+
+    /**
+     * @param courseUploadTime
+     */
+    public void setCourseUploadTime(Date courseUploadTime) {
+        this.courseUploadTime = courseUploadTime;
     }
 
     /**

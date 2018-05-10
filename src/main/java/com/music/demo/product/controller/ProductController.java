@@ -6,6 +6,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
@@ -32,12 +33,22 @@ public class ProductController {
     public ModelAndView getProdctTyoe() {
         ModelAndView mv =new ModelAndView();
 
-    ReturnProductMes rp=    picListService.getProductIndex();
+        ReturnProductMes rp=    picListService.getProductIndex();
         mv.setViewName("model/PC/index");
         mv.addObject("listProductType",rp.getListProductType());
         mv.addObject("listCourseRecommend",rp.getListCourseRecommend());
 
         return mv;
+    }
+
+    @RequestMapping("/getProductType")
+    @ResponseBody
+    public ReturnProductMes getVideoTyoe() {
+
+        ReturnProductMes rp=    picListService.getProductIndex();
+
+
+        return rp;
     }
 
 

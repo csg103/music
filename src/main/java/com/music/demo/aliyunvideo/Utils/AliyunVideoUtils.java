@@ -128,15 +128,17 @@ public class AliyunVideoUtils {
         return httpStr;
     }
 
-    public static String getAliyunVideoReturn(BaseVideoVO basevo, BaseVideoVO vo) {
-        String httpStr = "";
+    public static String getAliyunVideoReturn(BaseVideoVO basevo, BaseVideoVO vo) throws Exception {
+        String httpStr ,returnStr ="";
         try {
             httpStr = getHttpString(basevo, vo);
+             returnStr = HttpRequest.sendGet(httpAli,httpStr);
         } catch (Exception e) {
             e.printStackTrace();
+            throw new Exception("阿里云调用失败");
         }
 //        String[] args = httpStr.split(" ?");
-        String returnStr = HttpRequest.sendGet(httpAli,httpStr);
+
         return returnStr;
     }
 
