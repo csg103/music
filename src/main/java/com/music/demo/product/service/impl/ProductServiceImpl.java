@@ -80,6 +80,27 @@ public class ProductServiceImpl implements ProductService {
         return list;
     }
 
+
+
+    public ProductMes getProductMes(String courseId){
+        ProductMes productMes =new ProductMes();
+        productMes.setCourseId(courseId);
+        productMes= (ProductMes) productMesMapper.select(productMes).get(0);
+        return productMes;
+
+    }
+
+    public List<ProductDetail> getProductDetail(String courseId){
+
+        ProductDetailExample pe = new ProductDetailExample();
+        pe.setOrderByClause("c_course_detail_id desc");
+        ProductDetailExample.Criteria criteria = pe.createCriteria();
+        criteria.andCourseDetailIdLike(courseId+"%");
+        return  productDetailMapper.selectByExample(pe);
+
+    }
+
+
     @Override
     public ReturnProductMes getProductIndex() {
 

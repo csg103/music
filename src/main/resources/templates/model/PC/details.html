@@ -1,0 +1,742 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title th:text="${productMes.courseName}"></title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta property="qc:admins" content="557726247637761736417">
+    <link th:href="${'../../css/details.css'}" rel="stylesheet" type="text/css">
+    <script th:src="${'../../js/jquery-1.11.3.min.js'}"></script>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.5.1/skins/default/aliplayer-min.css" />
+    <script type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.5.1/aliplayer-min.js"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+</head>
+
+<body>
+
+<div id="det_all" th:vid="${productId}">
+    <div class="play_panel">
+        <div class="container">
+            <p class="crumb">
+                <a href="http://www.roncoo.com/index.html">学院首页</a> &gt;
+                <a href="http://www.roncoo.com/course/list.html">课程列表</a> &gt;
+                <span class="det_title" th:text="${productMes.courseName}"></span>
+            </p>
+            <input type="hidden" id="vid" value="">
+            <input type="hidden" id="pid" value="">
+            <div class="box_one">
+                <div class="play_box" isrc="http://static.roncoo.com/lecturer/a81d1db8efa94c25a5aae2e5da433b17.jpg"
+                     style="background-image:url(http://static.roncoo.com/lecturer/a81d1db8efa94c25a5aae2e5da433b17.jpg)">
+                    <div id="viewBox" class="view_box"
+                         isrc="http://static.roncoo.com/lecturer/a81d1db8efa94c25a5aae2e5da433b17.jpg" name="">
+                        <div  class="prism-player view_box" id="J_prismPlayer" style="position: absolute"></div>
+                    </div>
+
+
+
+
+
+                    <div class="player_panel">
+                        <ul class="player_nav">
+                            <li class="op_chapter" btn="true"><i></i><span>章节</span></li>
+                            <li class="op_question">
+                                <a href="http://www.roncoo.com/course/view/e2b459016e2e477dbd5d67c8b23fe86d#jswd"><i></i><span>提问</span></a>
+                            </li>
+                            <li class="op_phone">
+                                <span>手机观看</span>
+                                <div class="ewm_box">
+                                    <p>扫码下载安卓APP</p>
+                                    <img src="./d_files/app_icon.png" alt="龙果安卓APP">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="chapter_panel">
+                            <h3 class="title" th:text="${productMes.courseName}"></h3>
+                            <div class="chapter_list">
+
+
+                                <dl th:each="productDetail,iterStat:${productDetailList} ">
+                                    <dd th:title="${productDetail.courseTitle}" th:vid="${productDetail.courseDetailId}" th:aid="${productDetail.courseDetailAiliId}" onClick="getAuth(this)" vcode="">
+												<span class="c_name"  >
+	                                            <em th:text="${iterStat.index}+1+' -'"></em>
+                                                <span>(免费)</span>
+                                                    <em th:text="${productDetail.courseTitle}"></em>
+												</span>
+
+                                        <span class="c_time" th:text="${productDetail.courseTime}+'分钟'"></span>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course_info_panel">
+                    <h3 id="courseName" th:text="${productMes.courseName}"></h3>
+                    <span id="favor" class="favor"></span>
+
+                    <div class="price_panel">
+                        优惠价：
+                        <span class="price"><i>￥</i> <span th:text="${productMes.courseSalePrice}"></span></span>
+                        <div id="activityPanel" class="activity_panel"></div>
+                    </div>
+
+                    <div class="more_info">
+                        <p class="">难&nbsp;&nbsp;&nbsp;&nbsp;度：<span class="grade">高级</span></p>
+                        <p class="">课&nbsp;&nbsp;&nbsp;&nbsp;时： <span class="grade"
+                                                                      th:text="${productMes.courseNum}"></span></p>
+                        <p class="">讲&nbsp;&nbsp;&nbsp;&nbsp;师：<span class="grade"
+                                                                     th:text="${productMes.courseTeacher}"></span></p>
+                        <p class="">学习人数：<span class="grade" th:text="${productMes.courseTimes}"></span></p>
+                    </div>
+                    <div class="one_btn2">
+                        <input type="button" value="购买课程" op="199" fp="199" cid="e2b459016e2e477dbd5d67c8b23fe86d" da=""
+                               ap="" class="one_click" id="oneClick">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a target="_blank" class="zx_btn"
+                           href="">购买咨询</a>
+                    </div>
+                    <p class="one_btn2">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box_two" id="boxTwo">
+        <div class="container">
+            <div class="main_panel">
+                <div class="tabs_column">
+                    <div class="tabs_box">
+
+                        <a tid="mu_itu" href=""
+                           class="on">课程介绍</a>
+                        <a tid="mulu" href="">课程目录</a>
+                        <a tid="wenda" name="jswd"
+                           href="">技术问答</a>
+
+                        <p class="fr">
+                            <input type="button" value="购买课程" op="199" fp="199" cid="e2b459016e2e477dbd5d67c8b23fe86d"
+                                   da="" ap="" class="one_click" id="oneClick2">
+                        </p>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="tabs_panel" id="mulu">
+                        <h6><i></i>课程大纲</h6>
+                        <div class="catalog_panel">
+                            <ul class="catalog_list" th:each="productDetail,iterStat:${productDetailList}">
+                                <li class="">
+                                    <em class="no">第1节</em>
+                                    <p th:title="${productDetail.courseTitle}" class="periods_name"
+                                       th:text="${productDetail.courseTitle}"></p>
+                                    <i class="p_icon"> [免费观看]</i>
+                                    <div class="fr">
+                                        <span class="l_time" th:text="${productDetail.courseTime}">00:05:42分钟</span>
+                                        <input title="马上观看" th:vid="${productDetail.courseDetailId}" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tabs_panel on" id="mu_itu">
+                        <h6><i></i>课程介绍</h6>
+                        <div class="describe">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <div>
+                                <p>Quartz是OpenSymphony开源组织在Job
+                                    scheduling领域又一个开源项目，它可以与J2EE与J2SE应用程序相结合也可以单独使用。Quartz可以用来创建简单或为运行十个，百个，甚至是好几万个Jobs这样复杂的程序。Jobs可以做成标准的Java组件或
+                                    EJBs。&nbsp; </p>
+                                <p>&nbsp; &nbsp; &nbsp;Quartz的优势：&nbsp;</p>
+                                <p></p>
+                                <ol>
+                                    <li>1、Quartz是一个任务调度框架(库)，它几乎可以集成到任何应用系统中。&nbsp;<br></li>
+                                    <li>2、Quartz是非常灵活的，它让您能够以最“自然”的方式来编写您的项目的代码，实现您所期望的行为&nbsp;<br></li>
+                                    <li>3、Quartz是非常轻量级的，只需要非常少的配置 —— 它实际上可以被跳出框架来使用，如果你的需求是一些相对基本的简单的需求的话。&nbsp;<br>
+                                    </li>
+                                    <li>4、Quartz具有容错机制，并且可以在重启服务的时候持久化（”记忆”）你的定时任务，你的任务也不会丢失。&nbsp;</li>
+                                    <li>5、可以通过Quartz，封装成自己的分布式任务调度，实现强大的功能，成为自己的产品。<br></li>
+                                    <li>6、有很多的互联网公司也都在使用Quartz。比如美团<br></li>
+                                </ol>
+                                <p></p>
+                            </div>
+                            <div>
+                                <b><br></b>
+                            </div>
+                            <div>
+                                <b>课程说明：</b>
+                            </div>
+                            <div>
+                                在我们的日常开发中，各种大型系统的开发少不了任务调度，简单的单机任务调度已经满足不了我们的系统需求，复杂的任务会让程序猿头疼，
+                                所以急需一套专门的框架帮助我们去管理定时任务，并且可以在多台机器去执行我们的任务，还要可以管理我们的分布式定时任务。
+                            </div>
+                            <p> 本课程从最开始的quatz框架讲起，由浅到深，从使用到结构分析，再到源码分析，深入解析quatz、spring+quatz，并且会讲解相关原理，
+                                让大家充分的理解这个框架和框架的设计思想。 </p>
+                            <p> 由于互联网的复杂性，为了满足我们特定的需求，需要对spring+quatz进行二次开发，整个二次开发过程都会进行讲解。 </p>
+                            <p>Spring被用在了越来越多的项目中,
+                                quartz也被公认为是比较好用的定时器设置工具，学完这个课程后，不仅仅可以熟练掌握分布式定时任务，还可以深入理解大型框架的设计思想。 </p>
+                            <p><br></p>
+                            <p> 温馨提示：本课程源码会在课程更新完毕后统一上传网站，凡购买本课程的学员在学习过程中遇到问题，请在课程提问区提问，讲师会定期统一答疑。 </p>
+                            <p><br></p>
+                            <p><b>课程大纲：</b></p>
+                            <p> 1、分布式任务调度需求说明 </p>
+                            <p> 2、分布式任务调度之quartz初体验 </p>
+                            <p> 3、分布式任务调度Trigger之simpleTrigger </p>
+                            <p> 4、分布式任务调度Trigger之DailyTimetrigger和calendartrigger </p>
+                            <p> 5、分布式任务调度Trigger之crontrigger </p>
+                            <p> 6、分布式任务调度job和jobdetail讲解 </p>
+                            <p> 7、分布式任务调度Schduler讲解 </p>
+                            <p> 8、分布式任务调度quartz源码解析之建造者模式 </p>
+                            <p> 9、分布式任务调度quartz源码解析之scheduler源码解析 </p>
+                            <p> 10、分布式任务调度quartz源码解析之scheduler源码分析总结 </p>
+                            <p> 11、分布式任务调度之触发器、调度器建造者源码分析 </p>
+                            <p> 12、分布式任务调度之触发器建造者、各类调度器建造者源码分析 </p>
+                            <p> 13、分布式任务调度之job源码分析 </p>
+                            <p> 14、分布式任务调度之JobRunShell源码分析 </p>
+                            <p> 15、分布式任务调度之spring+quartz整合 </p>
+                            <p> 16、分布式任务调度之spring+quartz源码解析之事件驱动模型原理讲解 </p>
+                            <p> 17、分布式任务调度之spring+quartz源码解析之事件驱动模型代码讲解 </p>
+                            <p> 18、分布式任务调度之spring+quartz源码解析之生命周期机制混合使用讲解 </p>
+                            <p> 19、分布式任务调度之spring+quartz源码解析之生命周期机制混合使用代码讲解 </p>
+                            <p> 20、分布式任务调度之Spring+quatz源码深度剖析 </p>
+                            <p> 21、分布式任务调度之Spring+quatz源码解析总结 </p>
+                            <p> 22、分布式任务调度之二次开发需求讲解 </p>
+                            <p> 23、分布式任务调度之二次开发代码编写1 </p>
+                            <p> 24、分布式任务调度之二次开发代码编写2 </p>
+                            <p> 25、分布式任务调度之二次开发代码编写3 </p>
+                            <p><br></p>
+                            <p></p>
+                            <p>大数据真实企业案例完整开发流程</p>
+                            <h3><a href="http://www.roncoo.com/course/view/ddd0b0730aec4bf3ae5d2e602ff870da">大型企业级云产品-数据统计分析系统（离线处理-流处理-批处理）</a><br>
+                            </h3>
+                            <p></p>
+                            <p><br></p>
+                            <p></p>
+                            <p>未经作者允许进行翻录和倒卖的，将进行相关的法律维权。&nbsp;&nbsp;<br></p>
+                            <p></p>
+                            <p><br></p>
+                            <p></p>
+                            <p><br></p>
+                        </div>
+                        <h6><i></i>课程大纲</h6>
+                        <div class="catalog_panel">
+                            <ul class="catalog_list">
+                                <li class="">
+                                    <em class="no">第1节</em>
+                                    <p title="1、分布式任务调度需求说明" class="periods_name">1、分布式任务调度需求说明</p>
+                                    <!-- 免费 -->
+                                    <i class="p_icon"> [免费观看]</i>
+                                    <div class="fr">
+                                        <span class="l_time">00:05:42分钟</span>
+                                        <input title="马上观看" pid="c08810357ac34e0a8280e7d9b8ae6920"
+                                               vid="a24911d8d7bc67e2e9b0e6de56b7c96c_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第2节</em>
+                                    <p title="2、分布式任务调度之quartz初体验" class="periods_name">2、分布式任务调度之quartz初体验</p>
+                                    <!-- 免费 -->
+                                    <i class="p_icon"> [免费观看]</i>
+                                    <div class="fr">
+                                        <span class="l_time">00:16:53分钟</span>
+                                        <input title="马上观看" pid="48bdce05d1a74c7f983eb3b8ae1b3723"
+                                               vid="a24911d8d7f479cff8ee035aef6d712c_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第3节</em>
+                                    <p title="3、分布式任务调度Trigger之simpleTrigger" class="periods_name">
+                                        3、分布式任务调度Trigger之simpleTrigger</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:19:21分钟</span>
+                                        <input title="马上观看" pid="6bd81f25b93243cb849531566989d507"
+                                               vid="a24911d8d7404ba1c3609cf72f7172bb_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第4节</em>
+                                    <p title="4、分布式任务调度Trigger之DailyTimetrigger和calendartrigger" class="periods_name">
+                                        4、分布式任务调度Trigger之DailyTimetrigger和calendartrigger</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:19:06分钟</span>
+                                        <input title="马上观看" pid="ecc19a25189f4c66851ef2fea2a98acb"
+                                               vid="a24911d8d7470d181bc41a790e9708f6_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+
+                                        <a href="javascript:void(0);" title="分布式任务调度资料.zip"
+                                           class="doc_btn disabled"></a>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第5节</em>
+                                    <p title="5、分布式任务调度Trigger之crontrigger" class="periods_name">
+                                        5、分布式任务调度Trigger之crontrigger</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:18:12分钟</span>
+                                        <input title="马上观看" pid="e68a1e0a42384a79a82b55365b010499"
+                                               vid="a24911d8d758877641ca45f7a8749411_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+
+                                        <a href="javascript:void(0);" title="分布式任务调度.docx" class="doc_btn disabled"></a>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第6节</em>
+                                    <p title="6、分布式任务调度job和jobdetail讲解" class="periods_name">
+                                        6、分布式任务调度job和jobdetail讲解</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:26:59分钟</span>
+                                        <input title="马上观看" pid="11d199eb037c480c961cc6910cbb4383"
+                                               vid="a24911d8d70a1ea044d11169b9a7f31f_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第7节</em>
+                                    <p title="7、分布式任务调度Schduler讲解" class="periods_name">7、分布式任务调度Schduler讲解</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:10:07分钟</span>
+                                        <input title="马上观看" pid="cdcac80e835a4e14a24b585620595d33"
+                                               vid="a24911d8d7d61e4d45a5365a526bcdc9_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第8节</em>
+                                    <p title="8、分布式任务调度quartz源码解析之建造者模式" class="periods_name">
+                                        8、分布式任务调度quartz源码解析之建造者模式</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:25:18分钟</span>
+                                        <input title="马上观看" pid="5bfcb43c46ea4570900a3ed32efad058"
+                                               vid="a24911d8d730a8293d12578190b09db7_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第9节</em>
+                                    <p title="9、分布式任务调度quartz源码解析之scheduler源码解析" class="periods_name">
+                                        9、分布式任务调度quartz源码解析之scheduler源码解析</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:21:28分钟</span>
+                                        <input title="马上观看" pid="969230d7f15c4b5aae0dc56e78d142ce"
+                                               vid="a24911d8d770a4fa9bede24f491bdf72_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第10节</em>
+                                    <p title="10、分布式任务调度quartz源码解析之scheduler源码分析总结" class="periods_name">
+                                        10、分布式任务调度quartz源码解析之scheduler源码分析总结</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:16:58分钟</span>
+                                        <input title="马上观看" pid="a176ba24b6aa47dc8d395296ec389fb3"
+                                               vid="a24911d8d736b99c2e5e7eb514671dfd_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第11节</em>
+                                    <p title="11、分布式任务调度之触发器、调度器建造者源码分析" class="periods_name">
+                                        11、分布式任务调度之触发器、调度器建造者源码分析</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:17:03分钟</span>
+                                        <input title="马上观看" pid="664b1082c30c4939ba1d55d6bf18d345"
+                                               vid="a24911d8d7c2382c0ec4d45f310cfc30_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第12节</em>
+                                    <p title="12、分布式任务调度之触发器建造者、各类调度器建造者源码分析" class="periods_name">
+                                        12、分布式任务调度之触发器建造者、各类调度器建造者源码分析</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:18:15分钟</span>
+                                        <input title="马上观看" pid="05ce2c65a4724bb188e23ea0338edc50"
+                                               vid="a24911d8d76921ff22c202dc2bfbde71_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第13节</em>
+                                    <p title="13、分布式任务调度之job源码分析" class="periods_name">13、分布式任务调度之job源码分析</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:06:50分钟</span>
+                                        <input title="马上观看" pid="b09486697f8046e3b3608678ff502a50"
+                                               vid="a24911d8d7dc7e6cf78842a5bcf750aa_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第14节</em>
+                                    <p title="14、分布式任务调度之JobRunShell源码分析" class="periods_name">
+                                        14、分布式任务调度之JobRunShell源码分析</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:14:21分钟</span>
+                                        <input title="马上观看" pid="a1e177b8633b4c5ebcc924f32c8c9002"
+                                               vid="a24911d8d73a93335d40ea4ebcfdf9d2_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第15节</em>
+                                    <p title="15、分布式任务调度之spring+quartz整合" class="periods_name">
+                                        15、分布式任务调度之spring+quartz整合</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:26:11分钟</span>
+                                        <input title="马上观看" pid="55f85d0676b641c2ac85d7955f440682"
+                                               vid="a24911d8d76725b10213fcef5746ad48_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第16节</em>
+                                    <p title="16、分布式任务调度之spring+quartz源码解析之事件驱动模型原理讲解" class="periods_name">
+                                        16、分布式任务调度之spring+quartz源码解析之事件驱动模型原理讲解</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:34:50分钟</span>
+                                        <input title="马上观看" pid="0d18c0e1d6024dccb93fe4005770ce74"
+                                               vid="a24911d8d7a10a6ad9a98d5fa700659c_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第17节</em>
+                                    <p title="17、分布式任务调度之spring+quartz源码解析之事件驱动模型代码讲解" class="periods_name">
+                                        17、分布式任务调度之spring+quartz源码解析之事件驱动模型代码讲解</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:39:16分钟</span>
+                                        <input title="马上观看" pid="d122a585f5cc4ff290ae2b93998d5654"
+                                               vid="a24911d8d7597b28bd5296f4a0f7e984_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第18节</em>
+                                    <p title="18、分布式任务调度之spring+quartz源码解析之生命周期机制混合使用讲解" class="periods_name">
+                                        18、分布式任务调度之spring+quartz源码解析之生命周期机制混合使用讲解</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:13:56分钟</span>
+                                        <input title="马上观看" pid="ccdce691f0864fef84c5d4e8163cee99"
+                                               vid="a24911d8d7e11650a02076d1d9a2221a_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第19节</em>
+                                    <p title="19、分布式任务调度之spring+quartz源码解析之生命周期机制混合使用代码讲解" class="periods_name">
+                                        19、分布式任务调度之spring+quartz源码解析之生命周期机制混合使用代码讲解</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:24:11分钟</span>
+                                        <input title="马上观看" pid="a2cfd9bd98b24495b39a4b3039f83f00"
+                                               vid="a24911d8d79b876301a8c0a2ccd21ff7_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第20节</em>
+                                    <p title="20、分布式任务调度之Spring+quatz源码深度剖析" class="periods_name">
+                                        20、分布式任务调度之Spring+quatz源码深度剖析</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:33:14分钟</span>
+                                        <input title="马上观看" pid="bab6935dea19422ea5554b48659c3038"
+                                               vid="a24911d8d738597281758bcd6a81db46_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                                <li class="">
+                                    <em class="no">第21节</em>
+                                    <p title="21、分布式任务调度之Spring+quatz源码解析总结" class="periods_name">
+                                        21、分布式任务调度之Spring+quatz源码解析总结</p>
+                                    <div class="fr">
+                                        <span class="l_time">00:24:33分钟</span>
+                                        <input title="马上观看" pid="52d82040e78d46359a4f800da758bc01"
+                                               vid="a24911d8d786a1a92eb8324240cf81e7_a" vcode=""
+                                               class="view_btn goStudyFlag" type="button">
+                                        <i>|</i>
+                                        <span class="notdoc_btn"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="wenda" class="tabs_panel">
+                        <div id="QAList">
+                            <div class="list-wrap" data-reactid=".0">
+                                <div class="nodata" data-reactid=".0.0">暂无相关问答</div>
+                            </div>
+                        </div>
+                        <div class="my_qa">
+                            <div class="my_qa_panel">
+                                <div class="not_login_tip">
+                                    <p>您还没有登录！请先
+                                        <a href="http://www.roncoo.com/course/view/e2b459016e2e477dbd5d67c8b23fe86d"
+                                           class="login_go">登录</a>
+                                        或
+                                        <a href="http://www.roncoo.com/course/view/e2b459016e2e477dbd5d67c8b23fe86d"
+                                           class="register_go">注册</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side_panel">
+                <!-- 课程信息 -->
+
+                <!-- 推荐课程 -->
+                <div class="item_panel">
+                    <h3 class="title"><span>相关课程</span></h3>
+                    <div class="panel_box">
+                        <ul class="hots_course">
+                            <li>
+                                <a href="http://www.roncoo.com/course/view/85d6008fe77c4199b0cdd2885eaeee53"
+                                   target="_blank"> <img src="./d_files/4bcfa06011334a22bbc7ebe47cd9cb39.jpg" alt="">
+                                    <p>基于Dubbo的分布式系统架构实战</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb"
+                                   target="_blank"> <img src="./d_files/30ee83e5e0824f83b38fadb3265dc619.jpg" alt="">
+                                    <p>微服务架构的分布式事务解决方案（Dubbo分布式事务处理）</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.roncoo.com/course/view/b6f89747a8284f44838b2c4da6c8677b"
+                                   target="_blank"> <img src="./d_files/ec8a20af4dcd42bfb88a25bc34ca5d97.jpg" alt="">
+                                    <p>Java并发编程原理与实战</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.roncoo.com/course/view/ae1dbb70496349d3a8899b6c68f7d10b"
+                                   target="_blank"> <img src="./d_files/36039b4793c740caaa1377014c676437.jpg" alt="">
+                                    <p>从无到有搭建中小型互联网公司后台服务架构与运维架构</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.roncoo.com/course/view/70121aaefac043d993b6075ba1a30344"
+                                   target="_blank"> <img src="./d_files/c724e02b61ec43c4bb339e539c435260.jpg" alt="">
+                                    <p>spring与dubbo分布式REST服务开发实战</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.roncoo.com/course/view/cc8fbd6749f94f2fa015641ef96b9460"
+                                   target="_blank"> <img src="./d_files/7d0ea99102c54fc78eadd55206251bd6.jpg" alt="">
+                                    <p>Spring Cloud 第一季</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 讲师信息 -->
+                <div class="item_panel lecturer_panel">
+                    <h3 class="title"><span>讲师简介</span></h3>
+                    <div class="panel_box">
+                        <div class="lecturer_name" id="lecturerId" lid="d28b9f973529497196c1ffc6be8e1ed4">
+                            <a href="http://www.roncoo.com/course/lecturer/88201803111139448371" target="_blank">
+                                <i><img src="http://www.roncoo.com/course/view/e2b459016e2e477dbd5d67c8b23fe86d"></i>
+                                <p>友凡</p>
+                            </a>
+                        </div>
+                        <p class="lecturer_info">
+                            多年移动互联网产品设计和开发经验，带领团队完成多个知名互联网产品，历任多家知名公司Java和大数据架构师，精通Java、大数据、Go、Python等语言和技术，IT一线行业8年实战经验，目前为某知名网大数据架构师。</p>
+                    </div>
+                </div>
+
+                <div class="item_panel">
+                    <h3 class="title"><span>学员动态</span></h3>
+                    <ul class="user_list">
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>2439****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>2326****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/null" alt=""></div>
+                            <div class="name"><span>2266****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>smil****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>wang****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>1132****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>1836****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/null" alt=""></div>
+                            <div class="name"><span>5974****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>8055****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>9281****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/t12.jpg" alt=""></div>
+                            <div class="name"><span>7911****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>9733****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>1003****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/null" alt=""></div>
+                            <div class="name"><span>tsui****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/t7.jpg" alt=""></div>
+                            <div class="name"><span>1006****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>6193****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/t17.jpg" alt=""></div>
+                            <div class="name"><span>1861****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>4593****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/face.png" alt=""></div>
+                            <div class="name"><span>meng****</span> 开始学习</div>
+                        </li>
+                        <li class="">
+                            <div class="face"><img src="./d_files/null" alt=""></div>
+                            <div class="name"><span>xiao****</span> 开始学习</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="${'../../js/loadJs.js'}"></script>
+<script th:inline="javascript">
+
+</script>
+</body>
+
+</html>
+
+<script th:inline="javascript">
+var args ,   vid ;
+
+
+    function getAuth(obj) {
+        vid =$(obj).attr("aid");
+
+        $.ajax({
+            url: "/play/"+$(obj).attr("aid"),
+            type: 'post',
+//            dataType: 'json',
+            async: false,
+            data: null,
+            success: function (data) {
+//                alert(data);
+                args=data;
+            }, error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status);
+                alert(XMLHttpRequest.readyState);
+                alert(textStatus);
+            }
+        });
+        var player = new Aliplayer({
+            id: 'J_prismPlayer',
+            width: '100%',
+            height:"100%",
+            autoplay: true,
+            vid : vid,
+            playauth : args,
+            useFlashPrism:true
+
+        },function(player){
+            console.log('播放器创建好了。')
+        });
+        $(".op_chapter").click();
+
+    }
+
+
+
+
+
+
+
+
+</script>

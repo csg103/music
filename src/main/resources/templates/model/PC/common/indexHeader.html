@@ -398,7 +398,7 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" th:each="courseRecommend,iterStat:${listCourseRecommend}">
-                            <a class="aImg" th:id="${courseRecommend.courseId}" th:name1="${courseRecommend.courseName}"
+                            <a class="aImg" th:id="${courseRecommend.courseId}" th:href="'getDetail/'+${courseRecommend.courseId}" th:name1="${courseRecommend.courseName}"
                                th:name="${courseRecommend.courseTeacher}">
                                 <img th:src="${courseRecommend.coursePicUrl}"/>
                             </a>

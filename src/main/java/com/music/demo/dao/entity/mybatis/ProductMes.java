@@ -44,8 +44,11 @@ public class ProductMes {
     @Column(name = "c_course_pic_url")
     private String coursePicUrl;
 
-    @Column(name = "c_product_num")
-    private String productNum;
+    @Column(name = "c_course_num")
+    private String courseNum;
+
+    @Column(name = "c_course_diffculty")
+    private String courseDiffculty;
 
     @Column(name = "c_course_sale_price")
     private String courseSalePrice;
@@ -242,17 +245,31 @@ public class ProductMes {
     }
 
     /**
-     * @return c_product_num
+     * @return c_course_num
      */
-    public String getProductNum() {
-        return productNum;
+    public String getCourseNum() {
+        return courseNum;
     }
 
     /**
-     * @param productNum
+     * @param courseNum
      */
-    public void setProductNum(String productNum) {
-        this.productNum = productNum;
+    public void setCourseNum(String courseNum) {
+        this.courseNum = courseNum;
+    }
+
+    /**
+     * @return c_course_diffculty
+     */
+    public String getCourseDiffculty() {
+        return courseDiffculty;
+    }
+
+    /**
+     * @param courseDiffculty
+     */
+    public void setCourseDiffculty(String courseDiffculty) {
+        this.courseDiffculty = courseDiffculty;
     }
 
     /**

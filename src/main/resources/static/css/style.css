@@ -462,10 +462,10 @@ animation: myfirst 1s linear 0s infinite normal;
 .swiperBox i em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
 .swiperBox i em b {position: relative;font-weight: normal;margin-right:15px;}
 
-.swiperBox s {font-size:14px;line-height:22px;display: block;color: #fff;position: absolute;top:10px;right:0;font-family: "微软雅黑";border-radius: 20px 0 0 20px;overflow: hidden;text-decoration: none;}
+.swiperBox s {font-size:14px;line-height:22px;display: block;color: #fff;position: absolute;top:10px;right:0;font-family: "微软雅黑";border-radius: 10px 0 0 10px;overflow: hidden;text-decoration: none;}
 .swiperBox s em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-right: 6px;}
 .swiperBox s em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
-.swiperBox s em b {position: relative;font-weight: normal;margin-left:15px;}
+.swiperBox s em b {position: relative;font-weight: normal;margin-left:10px;}
 
 .swiperBox .swiper-slide:hover i,.swiperBox .swiper-slide:hover s {
 	opacity: 0;
@@ -707,12 +707,12 @@ animation: myfirst 1s linear 0s infinite normal;
 	display: block
 }
 
-.picsBox i {font-size:16px;line-height:26px;display: block;color: #fff;position: absolute;top:0px;left:0;font-family: "微软雅黑";border-radius: 0 0px 20px 0;overflow: hidden;}
+.picsBox i {font-size:16px;line-height:26px;display: block;color: #fff;position: absolute;bottom:0px;left:0;font-family: "微软雅黑";border-radius: 0 20px 20px 0;overflow: hidden;}
 .picsBox i em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-left: 6px;}
 .picsBox i em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
 .picsBox i em b {position: relative;font-weight: normal;margin-right:15px;}
 
-.picsBox s {font-size:16px;line-height:26px;display: block;color: #fff;position: absolute;top:0px;right:0;font-family: "微软雅黑";border-radius: 0px 0 0 20px;overflow: hidden;text-decoration: none;}
+.picsBox s {font-size:16px;line-height:26px;display: block;color: #fff;position: absolute;bottom:0px;right:0;font-family: "微软雅黑";border-radius: 20px 0 0 20px;overflow: hidden;text-decoration: none;}
 .picsBox s em {display: block;width: 100%;height: 100%;position: relative;z-index: 1;padding-right: 6px;}
 .picsBox s em::before {position: absolute;top:0;left:0;background: #ff8a00;width: 100%;height: 100%;content: "";z-index: -1;}
 .picsBox s em b {position: relative;font-weight: normal;margin-left:10px;}
