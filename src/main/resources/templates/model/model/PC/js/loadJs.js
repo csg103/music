@@ -119,4 +119,5 @@ $(".op_chapter").click(function(){
 $(".tabs_box a").hover(function(){
 	
 	$("#"+$(this).attr("tid")+"").show().siblings().hide()
+	$(this).addClass("on").siblings().removeClass("on")
 })
