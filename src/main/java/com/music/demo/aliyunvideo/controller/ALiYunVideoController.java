@@ -113,11 +113,17 @@ public class ALiYunVideoController {
     }
 
 
-    @RequestMapping("/play")
-    public String play(HashMap<String, Object> map) {
-        String playAuth = AliyunVideoUtils.getPlayAuth("7f78577aa86c428aae7894bd2c08ff98");
-        map.put("playAuth", playAuth);
-        return "/play";
+    @RequestMapping("/play/{productId}")
+    @ResponseBody
+    public String play(@PathVariable("productId") String productId ) {
+        String playAuth="";
+        try {
+             playAuth = AliyunVideoUtils.getPlayAuth(productId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return playAuth;
     }
 
     @RequestMapping("/updateUploadFlag")

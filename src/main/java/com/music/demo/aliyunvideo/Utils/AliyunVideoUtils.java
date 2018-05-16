@@ -57,7 +57,7 @@ public class AliyunVideoUtils {
         return playAuth;
     }
 
- public static String  getPlayAuth(String vid){
+ public static String  getPlayAuth (String vid){
      DefaultAcsClient  client = new DefaultAcsClient(getDefaultProfile());
      return getVideoPlayAuth(client,vid);
 

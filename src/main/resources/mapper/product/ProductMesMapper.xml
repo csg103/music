@@ -18,7 +18,8 @@
     <result column="c_course_top_order" jdbcType="VARCHAR" property="courseTopOrder" />
     <result column="c_product_middle_pic_list_id" jdbcType="VARCHAR" property="productMiddlePicListId" />
     <result column="c_course_pic_url" jdbcType="VARCHAR" property="coursePicUrl" />
-    <result column="c_product_num" jdbcType="VARCHAR" property="productNum" />
+    <result column="c_course_num" jdbcType="VARCHAR" property="courseNum" />
+    <result column="c_course_diffculty" jdbcType="VARCHAR" property="courseDiffculty" />
     <result column="c_course_sale_price" jdbcType="VARCHAR" property="courseSalePrice" />
     <result column="c_course_price" jdbcType="VARCHAR" property="coursePrice" />
     <result column="c_text1" jdbcType="VARCHAR" property="text1" />
@@ -62,8 +63,8 @@
     -->
     ID, c_course_id, c_course_name, c_course_type, c_course_isfree, c_course_introduction, 
     c_course_owner_id, c_course_teacher, c_course_times, c_course_creater, c_course_top_order, 
-    c_product_middle_pic_list_id, c_course_pic_url, c_product_num, c_course_sale_price, 
-    c_course_price, c_text1, c_text2
+    c_product_middle_pic_list_id, c_course_pic_url, c_course_num, c_course_diffculty, 
+    c_course_sale_price, c_course_price, c_text1, c_text2
   </sql>
   <select id="countByExample" parameterType="com.music.demo.dao.entity.mybatis.ProductMesExample" resultType="java.lang.Long">
     <!--

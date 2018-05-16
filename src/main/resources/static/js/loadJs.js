@@ -103,3 +103,21 @@ $(function(){
 		}
 	})
 });
+
+$(".op_chapter").click(function(){
+	if($(this).attr("btn")=="true"){
+		$(".player_panel").css("right","0")
+		$(this).attr("btn","false")
+		$(this).addClass("on")
+	}else{
+		$(".player_panel").css("right","-330px")
+		$(this).attr("btn","true")
+		$(this).removeClass("on")
+	}
+})
+
+$(".tabs_box a").hover(function(){
+	
+	$("#"+$(this).attr("tid")+"").show().siblings().hide()
+	$(this).addClass("on").siblings().removeClass("on")
+})
