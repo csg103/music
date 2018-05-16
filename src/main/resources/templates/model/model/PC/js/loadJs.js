@@ -106,11 +106,11 @@ $(function(){
 
 $(".op_chapter").click(function(){
 	if($(this).attr("btn")=="true"){
-		$(".player_panel").css("right","0")
+		$(".player_panel").css("right","-50px")
 		$(this).attr("btn","false")
 		$(this).addClass("on")
 	}else{
-		$(".player_panel").css("right","-330px")
+		$(".player_panel").css("right","-380px")
 		$(this).attr("btn","true")
 		$(this).removeClass("on")
 	}

@@ -1306,7 +1306,7 @@ a:hover {
 
 .player_panel {
 	position: absolute;
-	right: -330px;
+	right: -380px;
 	top: 0;
 	bottom: 0;
 	background-color: #14191E;
@@ -1526,10 +1526,8 @@ a:hover {
 }
 
 #det_all .box_one .box_one_l, .play_box {
-	padding-right: 50px;
 	float: left;
 	position: relative;
-	overflow: hidden
 }
 
 .doc_panel a:hover {

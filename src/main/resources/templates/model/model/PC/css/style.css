@@ -1207,7 +1207,7 @@ animation: myfirst 1s linear 0s infinite normal;
     left: 100px;
     top: 50%;
     /*bottom: 0;*/
-    z-index: 7;
+    z-index: 32;
     margin: auto 0;
     width: 44px;
     /*height: 560px;*/
