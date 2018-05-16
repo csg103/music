@@ -1726,7 +1726,7 @@ animation: myfirst 1s linear 0s infinite normal;
 
 .hover-classify-one .classify-item-wrap {
     float: left;
-    width: 126px
+    width: 50%
 }
 
 .pb-nav .nav-item:nth-of-type(2) .hover-classify-one .classify-item-wrap {
@@ -1809,7 +1809,7 @@ animation: myfirst 1s linear 0s infinite normal;
 
 .pb-nav .classify-two-ul > li {
     float: left;
-    width: 132px;
+    width: 50%;
     margin: 0 0 10px;
     letter-spacing: 0
 }
