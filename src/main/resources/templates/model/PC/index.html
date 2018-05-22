@@ -21,31 +21,41 @@
 
 
 
-<div class="wrap">
-	<div class="list-3 menuTitle js_floor" cnTitle="孙尚香" enTitle="Sun.Shangxiang" href="http://www.163.com" floorTitle="一层">
-		<div th:insert="~{model/PC/common/list-3 :: #list-3}"></div>
-	</div>
-	
-	<div class="list-3 menuTitle js_floor" cnTitle="成吉思汗" enTitle="Chengji.Sihan" href="http://www.163.com" floorTitle="二层">
-		<div th:insert="~{model/PC/common/list-3 :: #list-3}"></div>
 
+
+
+
+
+
+<div class="wrap"  th:each="productType,iterStat1:${listProductType}" >
+
+
+		<div th:each="productDetailType,iterStat:${productType.listProductDatilType}">
+
+	<div class="list-3 menuTitle js_floor" th:cnTitle="${productDetailType.productParentName}"  enTitle="Sun.Shangxiang" href="" th:floorTitle="${productDetailType.productParentName}">
+		<div th:insert="~{model/PC/common/list-3 :: #list-3}"></div>
 	</div>
-	
-	<div class="list-2 menuTitle js_floor" cnTitle="后裔" enTitle="Hou.Yi" href="http://www.sina.com.cn" floorTitle="三层">
-		<div th:insert="~{model/PC/common/list-2 :: #list-2}"></div>
-	</div>
-	
-	<div class="list-2 menuTitle js_floor" cnTitle="狄仁杰" enTitle="Di.Renjie" href="http://www.qq.com" floorTitle="四层">
-		<div th:insert="~{model/PC/common/list-2 :: #list-2}"></div>
-	</div>
-	
-	<div class="list-1 menuTitle js_floor" cnTitle="李元芳" enTitle="Li.Yuanfang" href="http://www.baidu.com" floorTitle="五层">
-		<div th:insert="~{model/PC/common/list-1 :: #list-1}"></div>
-	</div>
-	
-	<div class="list-1 menuTitle js_floor" cnTitle="鲁班七号" enTitle="LuBan No.7" floorTitle="六层">
-		<div th:insert="~{model/PC/common/list-1 :: #list-1}"></div>
-	</div>
+		</div>
+	<!--<div class="list-3 menuTitle js_floor" cnTitle="成吉思汗" enTitle="Chengji.Sihan" href="http://www.163.com" floorTitle="二层">-->
+		<!--<div th:insert="~{model/PC/common/list-3 :: #list-3}"></div>-->
+
+	<!--</div>-->
+	<!---->
+	<!--<div class="list-2 menuTitle js_floor" cnTitle="后裔" enTitle="Hou.Yi" href="http://www.sina.com.cn" floorTitle="三层">-->
+		<!--<div th:insert="~{model/PC/common/list-2 :: #list-2}"></div>-->
+	<!--</div>-->
+	<!---->
+	<!--<div class="list-2 menuTitle js_floor" cnTitle="狄仁杰" enTitle="Di.Renjie" href="http://www.qq.com" floorTitle="四层">-->
+		<!--<div th:insert="~{model/PC/common/list-2 :: #list-2}"></div>-->
+	<!--</div>-->
+	<!---->
+	<!--<div class="list-1 menuTitle js_floor" cnTitle="李元芳" enTitle="Li.Yuanfang" href="http://www.baidu.com" floorTitle="五层">-->
+		<!--<div th:insert="~{model/PC/common/list-1 :: #list-1}"></div>-->
+	<!--</div>-->
+	<!---->
+	<!--<div class="list-1 menuTitle js_floor" cnTitle="鲁班七号" enTitle="LuBan No.7" floorTitle="六层">-->
+		<!--<div th:insert="~{model/PC/common/list-1 :: #list-1}"></div>-->
+	<!--</div>-->
 </div>
 
 <!--右边栏-->

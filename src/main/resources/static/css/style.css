@@ -1099,7 +1099,7 @@ animation: myfirst 1s linear 0s infinite normal;
 	height: 230px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
-	background: url(http://js.ibaotu.com/revision/img/weixin_new.png) center no-repeat;
+	background: url(http://js.balabalabiu.com/revision/img/weixin_new.png) center no-repeat;
 	-webkit-background-size: 100% 100%;
 	background-size: 100%;
 	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .2);
@@ -1207,7 +1207,7 @@ animation: myfirst 1s linear 0s infinite normal;
     left: 100px;
     top: 50%;
     /*bottom: 0;*/
-    z-index: 7;
+    z-index: 32;
     margin: auto 0;
     width: 44px;
     /*height: 560px;*/
@@ -1482,7 +1482,7 @@ animation: myfirst 1s linear 0s infinite normal;
     color: #ff8a00
 }
 
-.indexHeader {    
+.indexHeader {
 	position: relative;
     width: 100%;
     padding-top: 28px;
@@ -1523,7 +1523,7 @@ animation: myfirst 1s linear 0s infinite normal;
     width: 41px;
     height: 22px;
     padding: 0;
-    background: url(http://js.ibaotu.com/revision/img/public/PPT2.png) center no-repeat;
+    background: url(http://js.balabalabiu.com/revision/img/public/PPT2.png) center no-repeat;
     -webkit-background-size: cover;
     background-size: cover
 }
@@ -1636,7 +1636,7 @@ animation: myfirst 1s linear 0s infinite normal;
     top: 24px;
     left: -82px;
     text-align: center;
-    background: url(http://js.ibaotu.com/revision/img/public/per_vip_bg.png) center;
+    background: url(http://js.balabalabiu.com/revision/img/public/per_vip_bg.png) center;
     padding: 0;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -1648,7 +1648,7 @@ animation: myfirst 1s linear 0s infinite normal;
     width: 300px;
     height: 270px;
     left: -87.5px;
-    background: transparent url(http://js.ibaotu.com//revision/img/public/com.png) no-repeat
+    background: transparent url(http://js.balabalabiu.com//revision/img/public/com.png) no-repeat
 }
 
 .pb-nav .perVip .btn-wrap {
